@@ -54,7 +54,7 @@ function IndustryOverview() {
           <h1 id="industry-heading" data-page-title="" className="text-[clamp(1.65rem,4.2vw,2.85rem)] font-bold leading-[1.2] tracking-tight">
             数智建造与六张网
           </h1>
-          <p className="mt-3 max-w-[36ch] text-[14px] leading-relaxed text-[#d2e4e3]">
+          <p className="mt-3 max-w-lg text-[14px] leading-relaxed text-[#d2e4e3]">
             关注湖北及全国的行业政策、项目进展和工程实践。
           </p>
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-[13px] font-semibold">
