@@ -1,3 +1,13 @@
+# 数智建造观察
+
+本仓库基于 AIHOT 搭建行业资讯站，跟踪数智建造和六张网的政策标准、项目与招采、投融资及工程实践，重点关注湖北。
+
+- 首页提供水网、新型电网、算力网、新一代通信网、城市地下管网和物流网六个专题入口。
+- 站名和页面文案在 [site/site.ts](site/site.ts)，分类、专题和采集信源在 [industry](industry/)。
+- 本地试用与服务器配置见 [部署说明](docs/deploy.md)。自动采集、精选与日报需要持续运行的后台和模型服务。已有数据库升级后可在后台暂停不再使用的旧信源。
+
+## 上游框架说明
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.png">
