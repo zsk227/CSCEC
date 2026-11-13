@@ -45,7 +45,7 @@ async function report(name: string, r: Report) {
   await sql`INSERT INTO publications (article_id,source_id,title,summary,url,timeline_at,discovered_at,sort_at,selected,eligible,indexable,
       visible_after,channel,category,body_mode,tags,seo_indexed_at)
     VALUES (${article},${source},'公开报道','一段转述原文的摘要。',${`https://example.org/${article}`},${r.at},${r.at},${r.at},${r.selected ?? true},true,
-      ${r.indexable ?? true},${r.at},${r.channel ?? "news"},'ai-models',${r.bodyMode ?? (r.body === undefined && !r.article ? "summary" : "full")},
+      ${r.indexable ?? true},${r.at},${r.channel ?? "news"},'digital-construction',${r.bodyMode ?? (r.body === undefined && !r.article ? "summary" : "full")},
       ${r.tags ?? []},${r.manual ? r.at : null})`;
   return article;
 }
