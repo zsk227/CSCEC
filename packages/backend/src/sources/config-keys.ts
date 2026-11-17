@@ -14,7 +14,7 @@ const KEYS: Record<SourceRow["kind"], string[]> = {
     "itemSelector", "linkSelector", "titleSelector", "publishedAtSelector", "publishedAtRegex", "publishedAtUtcOffset",
   ],
   json_list: [
-    ...COLLECTED, "url", "mode", "method", "headers", "bodyJson", "jsonKey", "windowVar", "itemsPath", "itemsObjectValues",
+    ...COLLECTED, "url", "mode", "method", "headers", "bodyJson", "bodyJsonVariants", "jsonKey", "windowVar", "itemsPath", "itemsObjectValues",
     "titlePaths", "summaryPaths", "summaryIsBody", "authorPaths", "publishedAtPath", "publishedAtUnit", "publishedAtUtcOffset", "externalIdPath",
     "urlTemplate", "urlTemplateFallback", "publishedAtForFallbackUrl", "rawDropKeys", "requireBoolean", "minNumeric",
   ],
@@ -70,6 +70,12 @@ export function unsupportedConfig(kind: SourceRow["kind"], config: Record<string
     else if (key === "publisherRequiresDiscovery" && (typeof value !== "boolean"
       || value && (!Array.isArray(config.publisherUrlPrefixes) || config.publisherUrlPrefixes.length === 0))) out.push(key);
     else if (key === "publishedAfter" && !utcInstant(value)) out.push(key);
+    else if (key === "bodyJsonVariants" && (
+      String(config.method).toUpperCase() !== "POST" || config.mode === "html_json_key" || config.mode === "html_window_var"
+      || !config.bodyJson || typeof config.bodyJson !== "object" || Array.isArray(config.bodyJson)
+      || !Array.isArray(value) || value.length < 1 || value.length > 20
+      || !value.every((entry) => entry && typeof entry === "object" && !Array.isArray(entry))
+    )) out.push(key);
     else if (key === "publishedAtForFallbackUrl" && (typeof value !== "boolean"
       || value && (!config.urlTemplate || !config.urlTemplateFallback || !config.publishedAtPath))) out.push(key);
     else if (key === "acceptLanguage" && (typeof value !== "string" || !ACCEPT_LANGUAGE.test(value))) out.push(key);

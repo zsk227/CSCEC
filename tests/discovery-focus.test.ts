@@ -45,7 +45,7 @@ async function report(name: string, r: Report) {
   await sql`INSERT INTO publications (article_id,source_id,title,summary,url,timeline_at,discovered_at,sort_at,selected,eligible,indexable,
       visible_after,channel,category,body_mode,tags,seo_indexed_at)
     VALUES (${article},${source},'公开报道','一段转述原文的摘要。',${`https://example.org/${article}`},${r.at},${r.at},${r.at},${r.selected ?? true},true,
-      ${r.indexable ?? true},${r.at},${r.channel ?? "news"},'ai-models',${r.bodyMode ?? (r.body === undefined && !r.article ? "summary" : "full")},
+      ${r.indexable ?? true},${r.at},${r.channel ?? "news"},'digital-construction',${r.bodyMode ?? (r.body === undefined && !r.article ? "summary" : "full")},
       ${r.tags ?? []},${r.manual ? r.at : null})`;
   return article;
 }
@@ -67,7 +67,7 @@ const stories: Record<string, string> = {};
 before(async () => {
   await sql`INSERT INTO sources (id,name,kind,tier,participation_mode) VALUES (${source},'Focus','rss','T1','editorial')`;
   // A topic of three pages, all of it older than the news window.
-  for (let n = 0; n < 45; n++) await report(`topic-${n}`, { at: ago(240 + n), body: long, tags: ["entity:minimax"] });
+  for (let n = 0; n < 45; n++) await report(`topic-${n}`, { at: ago(240 + n), body: long, tags: ["entity:cscec"] });
   Object.assign(ids, {
     long: await report("long", { at: ago(1), body: long }),
     noBody: await report("no-body", { at: ago(1) }),
@@ -113,10 +113,10 @@ async function file(name: string) {
 
 test("the sitemap leaves a topic's archive pages to the topic page; notifications keep them", async () => {
   const topics = urls(await file("topics"));
-  assert.ok(topics.includes("/topics/minimax"));
-  assert.ok(!topics.some((path) => path.startsWith("/topics/minimax/page/")), "archive pages are reached from the topic page");
+  assert.ok(topics.includes("/topics/cscec"));
+  assert.ok(!topics.some((path) => path.startsWith("/topics/cscec/page/")), "archive pages are reached from the topic page");
   const inventory = (await loadDiscoveryEntries(new Date())).map((e) => e.loc);
-  assert.ok(inventory.includes("/topics/minimax/page/2") && inventory.includes("/topics/minimax/page/3"), "engines are still told when they change");
+  assert.ok(inventory.includes("/topics/cscec/page/2") && inventory.includes("/topics/cscec/page/3"), "engines are still told when they change");
 });
 
 test("a page whose own text is a summary's worth is kept from Google only, and from the sitemap", async () => {

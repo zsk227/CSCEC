@@ -165,7 +165,7 @@ async function material(id: string, at: string) {
   await sql`INSERT INTO articles (id,source_id,identity_key,url,title,published_at,timeline_at,discovered_at,updated_at)
     VALUES (${id},'baidu-editorial',${id},${`https://example.org/${id}`},'公开报道',${at},${at},${at},${at})`;
   await sql`INSERT INTO publications (article_id,source_id,title,summary,url,timeline_at,discovered_at,sort_at,selected,eligible,indexable,visible_after,updated_at,channel,category)
-    VALUES (${id},'baidu-editorial','公开报道','公开摘要',${`https://example.org/${id}`},${at},${at},${at},true,true,true,${at},${at},'news','ai-models')`;
+    VALUES (${id},'baidu-editorial','公开报道','公开摘要',${`https://example.org/${id}`},${at},${at},${at},true,true,true,${at},${at},'news','digital-construction')`;
 }
 
 test('the report goes first, then pages that answer lasting searches, then stories and single articles, newer before older', async () => {

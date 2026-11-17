@@ -1,18 +1,26 @@
 {
-  "$comment": "示范信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”里新建、修改和暂停。字段说明见 docs/customize.md。",
+  "$comment": "首批公开信源。已存在的旧信源可在后台停用，导入不会删除旧记录。",
   "sources": [
     {
-      "id": "rss-openai-news",
-      "name": "OpenAI News",
-      "kind": "rss",
+      "id": "ndrc-local",
+      "name": "国家发展改革委 · 地方动态",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://openai.com/news/rss.xml",
+        "url": "https://www.ndrc.gov.cn/xwdt/dt/dfdt/",
+        "parseMode": "html",
+        "itemSelector": "li:has(> a[href$=\".html\"]):has(> span)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://www.ndrc.gov.cn/xwdt/dt/dfdt/"
+        ],
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 12
         }
       },
       "tier": "T1",
-      "owner_entity_id": "openai",
+      "owner_entity_id": "ndrc",
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
@@ -22,17 +30,30 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-google-deepmind",
-      "name": "Google DeepMind",
-      "kind": "rss",
+      "id": "hubei-housing-news",
+      "name": "湖北省住建厅 · 住建要闻",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://deepmind.google/blog/rss.xml",
+        "url": "https://zjt.hubei.gov.cn/bmdt/dtyw/zjyw/",
+        "parseMode": "html",
+        "itemSelector": "li:has(h4 a):has(.date)",
+        "linkSelector": "h4 a",
+        "titleSelector": "h4 a",
+        "publishedAtSelector": ".date",
+        "allowUrlPrefixes": [
+          "https://zjt.hubei.gov.cn/bmdt/dtyw/zjyw/",
+          "http://zjt.hubei.gov.cn/bmdt/dtyw/zjyw/"
+        ],
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 12
+        },
+        "itemUrlPrefixRewrite": {
+          "from": "http://zjt.hubei.gov.cn/bmdt/dtyw/zjyw/",
+          "to": "https://zjt.hubei.gov.cn/bmdt/dtyw/zjyw/"
         }
       },
       "tier": "T1",
-      "owner_entity_id": "google",
+      "owner_entity_id": "hubei-housing",
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
@@ -42,80 +63,30 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-google-research",
-      "name": "Google Research",
-      "kind": "rss",
+      "id": "hubei-miit-news",
+      "name": "湖北省经信厅 · 工作动态",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://research.google/blog/rss/",
+        "url": "https://jxt.hubei.gov.cn/bmdt/gzdt/",
+        "parseMode": "html",
+        "itemSelector": "li:has(h4 a):has(.date)",
+        "linkSelector": "h4 a",
+        "titleSelector": "h4 a",
+        "publishedAtSelector": ".date",
+        "allowUrlPrefixes": [
+          "https://jxt.hubei.gov.cn/bmdt/gzdt/",
+          "http://jxt.hubei.gov.cn/bmdt/gzdt/"
+        ],
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 12
+        },
+        "itemUrlPrefixRewrite": {
+          "from": "http://jxt.hubei.gov.cn/bmdt/gzdt/",
+          "to": "https://jxt.hubei.gov.cn/bmdt/gzdt/"
         }
       },
       "tier": "T1",
-      "owner_entity_id": "google",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-hugging-face",
-      "name": "Hugging Face Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://huggingface.co/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "hugging-face",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "开源"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-microsoft-research",
-      "name": "Microsoft Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.microsoft.com/en-us/research/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "microsoft",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-nvidia-blog",
-      "name": "NVIDIA Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://blogs.nvidia.com/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "nvidia",
+      "owner_entity_id": "hubei-miit",
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
@@ -125,38 +96,26 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-aws-ml",
-      "name": "AWS Machine Learning Blog",
-      "kind": "rss",
+      "id": "cscec-company-news",
+      "name": "中建集团 · 企业动态",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://aws.amazon.com/blogs/machine-learning/feed/",
+        "url": "https://www.cscec.com/xwzx_new/zqydt_new/",
+        "parseMode": "html",
+        "itemSelector": "li:has(> a[href$=\".html\"]):has(> span)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://www.cscec.com/xwzx_new/zqydt_new/"
+        ],
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 12
         }
       },
       "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "教程"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-github-ai",
-      "name": "GitHub Blog · AI & ML",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://github.blog/ai-and-ml/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
+      "selection_class": "corporate",
+      "owner_entity_id": "cscec",
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
@@ -166,17 +125,27 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-mistral",
-      "name": "Mistral AI",
-      "kind": "rss",
+      "id": "cscec3b-news",
+      "name": "中建三局 · 公司快讯",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://mistral.ai/news/rss",
+        "url": "https://3bur.cscec.com/xwzx11/gskx11/",
+        "parseMode": "html",
+        "itemSelector": "tr:has(> td.bt_date)",
+        "linkSelector": "td a[href$=\".html\"]",
+        "titleSelector": "td a[href$=\".html\"]",
+        "publishedAtSelector": "td.bt_date",
+        "allowUrlPrefixes": [
+          "https://3bur.cscec.com/xwzx11/gskx11/"
+        ],
+        "sortByPublishedAt": true,
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 12
         }
       },
       "tier": "T1",
-      "owner_entity_id": null,
+      "selection_class": "corporate",
+      "owner_entity_id": "cscec3b",
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
@@ -186,182 +155,478 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-bair",
-      "name": "Berkeley AI Research",
-      "kind": "rss",
+      "id": "cscec3b-digital-news",
+      "name": "中建三局数字工程公司 · 公司要闻",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://bair.berkeley.edu/blog/feed.xml",
+        "url": "https://3baz.cscec.com/xwzx/gsyw/",
+        "parseMode": "html",
+        "itemSelector": ".cnewlist > li:has(> a[href$=\".html\"]):has(> span)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://3baz.cscec.com/xwzx/gsyw/"
+        ],
+        "sortByPublishedAt": true,
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 12
         }
       },
       "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-the-verge-ai",
-      "name": "The Verge · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-techcrunch-ai",
-      "name": "TechCrunch · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://techcrunch.com/category/artificial-intelligence/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-ars-technica-ai",
-      "name": "Ars Technica · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://arstechnica.com/ai/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-mit-tech-review-ai",
-      "name": "MIT Technology Review · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
+      "selection_class": "corporate",
+      "owner_entity_id": "cscec3b-digital",
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
-        "媒体"
+        "官方"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-the-decoder",
-      "name": "The Decoder",
-      "kind": "rss",
+      "id": "hb-tenders-digital-construction",
+      "name": "湖北公共资源交易 · 数智建造标讯",
+      "kind": "json_list",
       "config": {
-        "feedUrl": "https://the-decoder.com/feed/",
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
         "_aihot": {
-          "initialBackfillLimit": 8
-        }
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "智能建造" },
+          { "wd": "数智建造" },
+          { "wd": "智慧工地" },
+          { "wd": "建筑机器人" },
+          { "wd": "工程数字化" },
+          { "wd": "BIM" }
+        ],
+        "sortByPublishedAt": true
       },
-      "tier": "T2",
-      "owner_entity_id": null,
+      "tier": "T1",
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 90,
       "tags": [
-        "媒体"
+        "湖北标讯",
+        "数智建造"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-simon-willison",
-      "name": "Simon Willison",
-      "kind": "rss",
+      "id": "hb-tenders-six-networks",
+      "name": "湖北公共资源交易 · 六张网标讯",
+      "kind": "json_list",
       "config": {
-        "feedUrl": "https://simonwillison.net/atom/everything/",
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "水网" },
+          { "wd": "供水管网" },
+          { "wd": "污水管网" },
+          { "wd": "排水防涝" },
+          { "wd": "输水" },
+          { "wd": "综合管廊" },
+          { "wd": "新型电网" },
+          { "wd": "配电网" },
+          { "wd": "算力" },
+          { "wd": "智算" },
+          { "wd": "数据中心" },
+          { "wd": "通信网" },
+          { "wd": "5G" },
+          { "wd": "千兆光网" },
+          { "wd": "物流枢纽" },
+          { "wd": "物流园区" },
+          { "wd": "智慧物流" },
+          { "wd": "多式联运" }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "六张网"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-smart-campus",
+      "name": "湖北公共资源交易 · 智慧校园标讯",
+      "kind": "json_list",
+      "config": {
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "智慧校园" },
+          { "wd": "数字校园" },
+          { "wd": "校园信息化" },
+          { "wd": "教育信息化" },
+          { "wd": "智慧教室" },
+          { "wd": "校园综合管理" }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "智慧校园"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-smart-park",
+      "name": "湖北公共资源交易 · 智慧园区标讯",
+      "kind": "json_list",
+      "config": {
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "智慧园区" },
+          { "wd": "数字园区" },
+          { "wd": "园区数字化" },
+          { "wd": "园区信息化" },
+          { "wd": "园区管理平台" },
+          { "wd": "智慧化工园区" }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "智慧园区"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-digital-housing",
+      "name": "湖北公共资源交易 · 数字住建标讯",
+      "kind": "json_list",
+      "config": {
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "数字住建" },
+          { "wd": "智慧住建" },
+          { "wd": "住建信息化" },
+          { "wd": "城市生命线" },
+          { "wd": "城市运行管理服务平台" },
+          { "wd": "城市信息模型" },
+          { "wd": "CIM平台" },
+          { "wd": "房屋安全监测" },
+          { "wd": "智慧物业" },
+          { "wd": "工程建设项目审批" },
+          { "wd": "城市数字公共基础设施" }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "数字住建"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-procurement-intentions",
+      "name": "中国湖北政府采购网 · 省级采购意向",
+      "kind": "web_list",
+      "config": {
+        "url": "http://www.ccgp-hubei.gov.cn/notice/cgyxgg/sjcgyxgg/index_1.html",
+        "itemSelector": ".news-list-content > li:has(> a[href*=\"/cgyxgg_\"])",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "http://www.ccgp-hubei.gov.cn/notice/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
         }
       },
-      "tier": "T2",
-      "owner_entity_id": null,
+      "tier": "T1",
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
-        "个人"
+        "湖北标讯",
+        "采购意向"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-import-ai",
-      "name": "Import AI",
-      "kind": "rss",
+      "id": "wechat-shushuo123-hubei",
+      "name": "数说123之湖北",
+      "kind": "mp_account",
       "config": {
-        "feedUrl": "https://importai.substack.com/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "nickname": "数说123之湖北"
       },
       "tier": "T2",
-      "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 180,
+      "enabled": false,
+      "interval_minutes": 360,
       "tags": [
-        "个人",
-        "周刊"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-latent-space",
-      "name": "Latent Space",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.latent.space/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "个人"
+        "微信公众号",
+        "湖北标讯"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false

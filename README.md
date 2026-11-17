@@ -1,3 +1,13 @@
+# 行业资讯
+
+本仓库基于 AIHOT 搭建资讯站，覆盖六张网、数字建造、智慧校园、智慧园区和数字住建，重点关注湖北。
+
+- 首页提供行业动态和湖北标讯入口。六张网的六个分专题在专题目录中浏览。
+- 站名和页面文案在 [site/site.ts](site/site.ts)，分类、专题和采集信源在 [industry](industry/)。
+- 本地试用与服务器配置见 [部署说明](docs/deploy.md)。自动采集、精选与日报需要持续运行的后台和模型服务。已有数据库升级后可在后台暂停不再使用的旧信源。
+
+## 上游框架说明
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.png">

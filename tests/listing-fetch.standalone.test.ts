@@ -62,6 +62,25 @@ test("RSS, HTML and JSON listings recover from a dropped connection, a second dr
   assert.equal(mockAgent.pendingInterceptors().filter(i => i.path === "/twice").length, 1);
 });
 
+test("JSON search variants keep base fields, collect distinct matches, and skip empty responses", async () => {
+  const url = (id: string) => `${origin}/notice/${id}`;
+  const requests = [
+    ["BIM", [{ title: "Shared notice", url: url("shared") }]],
+    ["智慧校园", []],
+    ["城市生命线", [{ title: "Also matches", url: url("shared") }, { title: "Another notice", url: url("other") }]],
+  ] as const;
+  for (const [wd, records] of requests) {
+    mockAgent.get(origin).intercept({ path: "/search", method: "POST", body: JSON.stringify({ limit: 10, wd }) })
+      .reply(200, JSON.stringify({ records }));
+  }
+  const items = await fetchJsonList(source("json_list", {
+    url: origin + "/search", method: "POST", bodyJson: { limit: 10 },
+    bodyJsonVariants: requests.map(([wd]) => ({ wd })),
+    itemsPath: "records", titlePaths: ["title"], urlTemplate: "{raw:url}",
+  }));
+  assert.deepEqual(items.map((item) => [item.title, item.url]), [["Shared notice", url("shared")], ["Another notice", url("other")]]);
+});
+
 test("YouTube's intermittent 404 is retried with the same validators and accepts a valid 304", async () => {
   const s = source("rss", { feedUrl: youtube + channelPath });
   mockAgent.get(youtube).intercept({ path: channelPath }).reply(200, xml, { headers: { etag: '"saved"' } });

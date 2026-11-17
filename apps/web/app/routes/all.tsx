@@ -21,7 +21,7 @@ export const handle: Screen = { tab: "featured", name: "全部" };
 export { pageHeaders as headers } from "../lib/api.server";
 export const { clientLoader, shouldRevalidate } = pageReuse<typeof loader>();
 
-const ALL_TITLE = subjectAfter("全部", "动态");
+const ALL_TITLE = "行业动态";
 
 export async function loader({ request }: Route.LoaderArgs) {
   const url = new URL(request.url);

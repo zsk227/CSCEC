@@ -139,6 +139,19 @@ function embeddedJson(html: string, source: SourceRow): unknown {
 }
 
 export async function fetchJsonList(source: SourceRow): Promise<Candidate[]> {
+  const { bodyJson, bodyJsonVariants } = source.config;
+  if (!bodyJsonVariants) return fetchJsonQuery(source, bodyJson);
+  const unique = new Map<string, Candidate>();
+  for (const variant of bodyJsonVariants) {
+    const found = await fetchJsonQuery(source, { ...bodyJson, ...variant });
+    for (const candidate of found) {
+      if (!unique.has(candidate.url)) unique.set(candidate.url, candidate);
+    }
+  }
+  return [...unique.values()];
+}
+
+async function fetchJsonQuery(source: SourceRow, bodyJson?: object): Promise<Candidate[]> {
   const c = source.config;
   const url = String(c.url ?? "");
   const headers: Record<string, string> = { accept: "application/json, text/html;q=0.9", ...languageHeaders(c.acceptLanguage), ...(c.headers ?? {}) };
@@ -153,8 +166,8 @@ export async function fetchJsonList(source: SourceRow): Promise<Candidate[]> {
     : requireOk(await fetchListing(url, {
       redirectPolicy: "same-origin",
       method: c.method ?? "GET",
-      headers: c.bodyJson ? { ...headers, "content-type": "application/json" } : headers,
-      body: c.bodyJson ? JSON.stringify(c.bodyJson) : undefined,
+      headers: bodyJson ? { ...headers, "content-type": "application/json" } : headers,
+      body: bodyJson ? JSON.stringify(bodyJson) : undefined,
       timeoutMs: 25_000,
     })).text();
   let data: unknown;

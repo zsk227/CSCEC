@@ -4,7 +4,7 @@
 import type { MetaDescriptor } from "react-router";
 import { REPORT_NAMES, reportDateLabel, type ReportDetail, type StoryDetail, type TimelineFilters } from "@aihot/contracts/site";
 import { isCategoryKey, isChannelKey } from "@aihot/contracts/taxonomy";
-import { SITE, subjectAfter, withSubject } from "@aihot/site";
+import { SITE, withSubject } from "@aihot/site";
 
 /**
  * The site's address: SITE_URL while rendering on the server (what crawlers and share previews read),
@@ -171,8 +171,8 @@ export function siteLd() {
       "@context": "https://schema.org",
       "@type": "Dataset",
       "@id": `${base}/#dataset`,
-      name: `${SITE.name} — ${withSubject("行业动态数据集")}`,
-      description: `${subjectAfter("持续更新的中文", "行业动态")}：每条附中文摘要、评分与原文出处，${subjectAfter("另有每日精选与", "日报")}，可通过 RSS 与公开 API 获取。`,
+      name: `${SITE.name} · 行业动态数据集`,
+      description: "收录行业动态与湖北标讯，附中文摘要和原文链接，可通过 RSS 与公开 API 获取。",
       url: base,
       inLanguage: SITE.locale,
       isAccessibleForFree: true,
