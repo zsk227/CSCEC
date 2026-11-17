@@ -52,7 +52,7 @@ function IndustryOverview() {
       <div className="grid gap-6 p-5 sm:p-7 xl:grid-cols-[1.15fr_1fr] xl:items-center">
         <div>
           <h1 id="industry-heading" data-page-title="" className="text-[clamp(1.65rem,4.2vw,2.85rem)] font-bold leading-[1.2] tracking-tight">
-            数智建造与六张网
+            行业资讯
           </h1>
           <p className="mt-3 max-w-lg text-[14px] leading-relaxed text-[#d2e4e3]">
             关注湖北及全国的行业政策、项目进展和工程实践。
