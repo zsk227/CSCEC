@@ -21,16 +21,16 @@ export const EDITION_WHEN = {
 
 export const SITE = {
   /** 站名：导航、页面标题、分享图、RSS、MCP、后台都用它。 */
-  name: "数智建造观察",
+  name: "行业资讯",
   /**
    * 行业词：拼进默认说法里，比如“AI 日报”“AI 动态”。
    * 改成“法律”“HR”“黄金”之类，页面上就会变成“法律日报”“法律动态”。
    */
-  subject: "数智建造",
+  subject: "行业",
   /** 首页的完整标题（浏览器标签、搜索结果）。 */
-  homeTitle: "数智建造观察 · 六张网与工程数字化资讯",
+  homeTitle: "行业资讯 · 行业动态与湖北标讯",
   /** 主题目录页（/topics）的标题。 */
-  topicsTitle: "专题 · 数智建造观察",
+  topicsTitle: "专题 · 行业资讯",
   /** 反馈表单输入框里的示例。 */
   feedbackExample: "例如：我在搜索某个关键词时遇到……我原本想……",
   /** 反馈页标题下面的一句话。 */
@@ -38,13 +38,13 @@ export const SITE = {
   /** 反馈表单邮箱框里的提示。 */
   feedbackEmailHint: "留下邮箱，我们可以回信联系你",
   /** 一句话介绍：搜索引擎、分享卡片、RSS、llms.txt 会用。 */
-  description: `跟踪数智建造与六张网的政策、项目和工程实践，重点关注湖北。${EDITION_WHEN.daily} 汇编行业日报。`,
+  description: `跟踪六张网、数字建造、智慧校园、智慧园区和数字住建，汇集行业动态与湖北招投标公告。${EDITION_WHEN.daily} 汇编行业日报。`,
   /** llms.txt 里一句话介绍下面的一段详细介绍（选填）。 */
-  llmsIntro: "跟踪 BIM/CIM、智慧工地、建筑机器人和工程 AI，以及水网、新型电网、算力网、新一代通信网、城市地下管网和物流网。",
+  llmsIntro: "收录行业政策、项目进展和应用案例，并跟踪湖北项目的采购意向、招标公告与中标成交结果。",
   /** 一行小字：分享图、海报下方。 */
-  tagline: "数智建造与六张网动态",
+  tagline: "行业动态与湖北标讯",
   /** 搜索引擎读到的关键词（首页结构化数据）。 */
-  keywords: ["数智建造", "智能建造", "六张网", "湖北", "工程数字化", "算力网"] as string[],
+  keywords: ["六张网", "数字建造", "智能建造", "智慧校园", "智慧园区", "数字住建", "湖北标讯"] as string[],
   /**
    * 搜索引擎站长平台的网站验证（选填）：meta 名 → 平台给的验证码，放在首页的 head 里。
    * 比如 "baidu-site-verification": "codeva-…"、"msvalidate.01": "…"。验证通过后也要留着，平台会定期复查。
@@ -82,7 +82,7 @@ export const SITE = {
   poweredBy: null as { name: string; url: string } | null,
   /** 结构化数据里的网站运营者（搜索引擎用）。 */
   organization: {
-    name: "数智建造观察",
+    name: "行业资讯",
     /** 创始人（选填）。 */
     founder: null as Founder | null,
   },
@@ -155,9 +155,9 @@ export const ABOUT = {
   /** 页面描述（搜索结果、分享卡片）。 */
   description: `关于 ${SITE.name}：${SITE.description}`,
   /** 大标题：第一行正常颜色，第二行强调色。 */
-  headline: ["跟踪数智建造与六张网，", "从政策部署看到项目进展。"] as [string, string],
+  headline: ["了解行业动态，", "跟进湖北项目机会。"] as [string, string],
   /** 标题下面的一段话。{sources} 会换成实时的信源数（两边自动加空格，所以 {sources} 两边不写空格）；统计没取到时换成 sourcesFallback。 */
-  lead: `${SITE.name} 跟踪{sources}个公开信源，汇总政策、项目与工程实践，重点关注湖北。`,
+  lead: `${SITE.name} 跟踪{sources}个公开信源，覆盖六张网、数字建造、智慧校园、智慧园区和数字住建。`,
   sourcesFallback: "多个",
   /** 信源河动画下面的四个环节。 */
   steps: {
@@ -208,9 +208,9 @@ export const REPORTS = {
   motto: SITE.subject as string,
   /** 每种报告页面的描述（搜索结果、分享卡片），不带句号；llms.txt 介绍周报、月报时也用它。 */
   descriptions: {
-    daily: `${SITE.name} ${subjectAfter(`${EDITION_WHEN.daily}（北京时间）发布的`, "行业精编日报")}`,
-    weekly: subjectAfter("每周", "行业综合回顾"),
-    monthly: subjectAfter("每月", "行业盘点"),
+    daily: `${EDITION_WHEN.daily}（北京时间）发布的行业日报`,
+    weekly: "每周行业回顾",
+    monthly: "每月行业盘点",
   },
   /**
    * 一期里的一条怎么称呼（“4 件大事”）：没有头条时的标题（“这一天的 4 件 AI 大事”）、报头和往期目录的条数、

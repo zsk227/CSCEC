@@ -12,7 +12,7 @@
  * feedLabel 是分类 RSS 标题里的名字（不写就用 label）。公开接口、RSS 和 MCP 里要把一类并进另一类发布，写在站点设置里（site/site.ts 的 PUBLIC_CATEGORIES）。
  */
 export const CATEGORIES = [
-  { key: "digital-construction", tagColor: "turquoise", label: "数智建造", section: "数智建造", guide: "涉及工程的数字化设计、智慧工地、智能生产、建筑机器人、工程 AI 与数字化运维。" },
+  { key: "digital-construction", tagColor: "turquoise", label: "数字建造", section: "数字建造", guide: "涉及工程的数字化设计、智慧工地、智能生产、建筑机器人、工程 AI 与数字化运维。" },
   { key: "six-networks", tagColor: "indigo", label: "六张网", section: "六张网", guide: "以水网、新型电网、算力网、新一代通信网、城市地下管网、物流网及多网协同的规划建设与运营为核心。" },
   { key: "projects", tagColor: "orange", label: "项目与招采", section: "项目与招采", guide: "核心信息是项目清单、招采、签约、开工、验收、投运或投融资节点，且项目与本站主题相关。" },
   { key: "industry", tagColor: "violet", label: "政策与产业", section: "政策与产业", guide: "跨领域的政策标准、行业机制、市场变化和机构动态。只针对一张网的专项建设方案归六张网。" },
@@ -41,7 +41,7 @@ export const CATEGORY_TAGS = ["政策/标准", "项目进展", "招标采购", "
 export const TOPIC_TAGS = ["水网", "新型电网", "算力网", "新一代通信网", "城市地下管网", "物流网", "BIM/CIM", "智慧工地", "建筑机器人", "数字孪生", "AI+建造", "多网协同", "湖北标讯", "智慧校园", "智慧园区", "数字住建"] as const;
 
 /** 可选的实体标签。 */
-export const ENTITY_TAGS = ["国家发展改革委", "住房城乡建设部", "湖北省发展改革委", "湖北省住建厅", "湖北省经信厅", "中建集团", "中建三局"] as const;
+export const ENTITY_TAGS = ["国家发展改革委", "住房城乡建设部", "湖北省发展改革委", "湖北省住建厅", "湖北省经信厅", "中建集团", "中建三局", "中建三局数字工程公司"] as const;
 
 export const TAG_SYNONYMS: Readonly<Record<string, string>> = {
   "BIM": "BIM/CIM", "CIM": "BIM/CIM", "智能工地": "智慧工地", "施工机器人": "建筑机器人",
@@ -65,7 +65,8 @@ export const ENTITIES: Record<string, { name: string; displayTag: string | null;
   "hubei-housing": { name: "湖北省住建厅", displayTag: "湖北省住建厅", aliases: ["湖北省住建厅", "湖北省住房和城乡建设厅", "湖北省住房城乡建设厅"] },
   "hubei-miit": { name: "湖北省经信厅", displayTag: "湖北省经信厅", aliases: ["湖北省经信厅", "湖北省经济和信息化厅"] },
   "cscec": { name: "中建集团", displayTag: "中建集团", aliases: ["中建集团", "中国建筑集团", "中国建筑股份有限公司"] },
-  "cscec3b": { name: "中建三局", displayTag: "中建三局", aliases: ["中建三局", "中建三局集团"] },
+  "cscec3b": { name: "中建三局", displayTag: "中建三局", aliases: ["中建三局", "中建三局集团", "中国建筑第三工程局有限公司"] },
+  "cscec3b-digital": { name: "中建三局数字工程公司", displayTag: "中建三局数字工程公司", aliases: ["中建三局数字工程有限公司", "中建三局数字公司", "中建三局安装工程有限公司"] },
 };
 
 /**
@@ -79,7 +80,8 @@ export const IDENTITY_LEXICON: ReadonlyArray<{ id: string; name: string; pattern
   { id: "hubei-housing", name: "湖北省住建厅", patterns: [/湖北省住建厅|湖北省住房和城乡建设厅|湖北省住房城乡建设厅/u] },
   { id: "hubei-miit", name: "湖北省经信厅", patterns: [/湖北省经信厅|湖北省经济和信息化厅/u] },
   { id: "cscec", name: "中建集团", patterns: [/中建集团|中国建筑集团|中国建筑股份有限公司/u] },
-  { id: "cscec3b", name: "中建三局", patterns: [/中建三局|中建三局集团/u] },
+  { id: "cscec3b", name: "中建三局", patterns: [/中建三局|中国建筑第三工程局/u] },
+  { id: "cscec3b-digital", name: "中建三局数字工程公司", patterns: [/中建三局(?:数字(?:工程(?:有限)?公司|公司)|安装(?:工程)?(?:有限)?公司)|三局数字公司/u] },
 ];
 
 /** 这些域名上的文章，发布方就是对应的公司（托管平台如 GitHub、arXiv 不算）。 */
@@ -91,6 +93,7 @@ export const PUBLISHER_DOMAINS: ReadonlyArray<{ entityId: string; domains: reado
   { entityId: "hubei-miit", domains: ["jxt.hubei.gov.cn"] },
   { entityId: "cscec", domains: ["www.cscec.com"] },
   { entityId: "cscec3b", domains: ["3bur.cscec.com"] },
+  { entityId: "cscec3b-digital", domains: ["3baz.cscec.com"] },
 ];
 
 /** 原文里的这些写法也算提到了对应公司。 */

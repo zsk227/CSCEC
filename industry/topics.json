@@ -7,8 +7,8 @@
     },
     {
       "key": "field",
-      "name": "数智建造与技术",
-      "blurb": "跟踪数字化设计、施工和运维中的具体应用"
+      "name": "行业方向",
+      "blurb": "跟踪数字建造、智慧校园、智慧园区和数字住建的技术与项目"
     },
     {
       "key": "genre",
@@ -222,10 +222,7 @@
       "name": "湖北省发展改革委",
       "group": "company",
       "entityId": "hubei-drc",
-      "aliases": [
-        "湖北省发改委",
-        "湖北省发展和改革委员会"
-      ],
+      "aliases": ["湖北省发改委", "湖北省发展和改革委员会"],
       "definition": "湖北六张网项目谋划、要素保障与投融资。"
     },
     {
@@ -255,6 +252,17 @@
       "group": "company",
       "entityId": "cscec3b",
       "definition": "中建三局的智能建造项目、技术与工程实践。"
+    },
+    {
+      "slug": "cscec3b-digital",
+      "name": "中建三局数字工程公司",
+      "group": "company",
+      "entityId": "cscec3b-digital",
+      "aliases": [
+        "中建三局数字公司",
+        "中建三局安装工程有限公司"
+      ],
+      "definition": "中建三局数字工程公司的数字建造、机电工程、城市智慧化和数字产业项目动态。"
     }
   ]
 }

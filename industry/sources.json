@@ -125,6 +125,66 @@
       "syndicate_fulltext": false
     },
     {
+      "id": "cscec3b-news",
+      "name": "中建三局 · 公司快讯",
+      "kind": "web_list",
+      "config": {
+        "url": "https://3bur.cscec.com/xwzx11/gskx11/",
+        "parseMode": "html",
+        "itemSelector": "tr:has(> td.bt_date)",
+        "linkSelector": "td a[href$=\".html\"]",
+        "titleSelector": "td a[href$=\".html\"]",
+        "publishedAtSelector": "td.bt_date",
+        "allowUrlPrefixes": [
+          "https://3bur.cscec.com/xwzx11/gskx11/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 12
+        }
+      },
+      "tier": "T1",
+      "selection_class": "corporate",
+      "owner_entity_id": "cscec3b",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "cscec3b-digital-news",
+      "name": "中建三局数字工程公司 · 公司要闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://3baz.cscec.com/xwzx/gsyw/",
+        "parseMode": "html",
+        "itemSelector": ".cnewlist > li:has(> a[href$=\".html\"]):has(> span)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://3baz.cscec.com/xwzx/gsyw/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 12
+        }
+      },
+      "tier": "T1",
+      "selection_class": "corporate",
+      "owner_entity_id": "cscec3b-digital",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
       "id": "hb-tenders-digital-construction",
       "name": "湖北公共资源交易 · 数智建造标讯",
       "kind": "json_list",
