@@ -64,6 +64,9 @@ function IndustryOverview() {
             <IntentLink to="/topics" className="rounded-tile px-2 py-2 text-[#c9f1e7] hover:underline">
               查看全部专题 <span aria-hidden="true">↗</span>
             </IntentLink>
+            <IntentLink to={`/all?tag=${encodeURIComponent("湖北标讯")}`} className="rounded-tile px-2 py-2 text-[#c9f1e7] hover:underline">
+              湖北标讯 <span aria-hidden="true">↗</span>
+            </IntentLink>
           </div>
         </div>
         <ul aria-label="六张网专题" className="grid grid-cols-2 gap-px overflow-hidden rounded-tile border border-[#49676d] bg-[#49676d] sm:grid-cols-3 xl:grid-cols-2">

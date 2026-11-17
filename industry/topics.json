@@ -77,6 +77,33 @@
       "definition": "物流枢纽、多式联运、仓配网络与智慧物流设施。"
     },
     {
+      "slug": "smart-campus",
+      "name": "智慧校园",
+      "group": "field",
+      "definition": "校园信息化、教室与实训空间数字化、校园安全和校务系统。",
+      "tags": [
+        "智慧校园"
+      ]
+    },
+    {
+      "slug": "smart-park",
+      "name": "智慧园区",
+      "group": "field",
+      "definition": "园区运营、安消一体化、能源管理及数字化平台。",
+      "tags": [
+        "智慧园区"
+      ]
+    },
+    {
+      "slug": "digital-housing",
+      "name": "数字住建",
+      "group": "field",
+      "definition": "住建监管、工程审批、城市生命线、房屋安全和智慧物业。",
+      "tags": [
+        "数字住建"
+      ]
+    },
+    {
       "slug": "bim-cim",
       "name": "BIM/CIM",
       "group": "field",
@@ -129,6 +156,15 @@
         "多网协同"
       ],
       "definition": "算力、能源、通信等网络之间的设施共建与协同运营。"
+    },
+    {
+      "slug": "hubei-tenders",
+      "name": "湖北标讯",
+      "group": "genre",
+      "definition": "湖北全省数智建造、六张网、智慧校园、智慧园区、数字住建的项目机会与结果。",
+      "tags": [
+        "湖北标讯"
+      ]
     },
     {
       "slug": "policy-standards",
@@ -186,7 +222,10 @@
       "name": "湖北省发展改革委",
       "group": "company",
       "entityId": "hubei-drc",
-      "aliases": ["湖北省发改委", "湖北省发展和改革委员会"],
+      "aliases": [
+        "湖北省发改委",
+        "湖北省发展和改革委员会"
+      ],
       "definition": "湖北六张网项目谋划、要素保障与投融资。"
     },
     {

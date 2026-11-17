@@ -123,6 +123,453 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-digital-construction",
+      "name": "湖北公共资源交易 · 数智建造标讯",
+      "kind": "json_list",
+      "config": {
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "智能建造" },
+          { "wd": "数智建造" },
+          { "wd": "智慧工地" },
+          { "wd": "建筑机器人" },
+          { "wd": "工程数字化" },
+          { "wd": "BIM" }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "数智建造"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-six-networks",
+      "name": "湖北公共资源交易 · 六张网标讯",
+      "kind": "json_list",
+      "config": {
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "水网" },
+          { "wd": "供水管网" },
+          { "wd": "污水管网" },
+          { "wd": "排水防涝" },
+          { "wd": "输水" },
+          { "wd": "综合管廊" },
+          { "wd": "新型电网" },
+          { "wd": "配电网" },
+          { "wd": "算力" },
+          { "wd": "智算" },
+          { "wd": "数据中心" },
+          { "wd": "通信网" },
+          { "wd": "5G" },
+          { "wd": "千兆光网" },
+          { "wd": "物流枢纽" },
+          { "wd": "物流园区" },
+          { "wd": "智慧物流" },
+          { "wd": "多式联运" }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "六张网"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-smart-campus",
+      "name": "湖北公共资源交易 · 智慧校园标讯",
+      "kind": "json_list",
+      "config": {
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "智慧校园" },
+          { "wd": "数字校园" },
+          { "wd": "校园信息化" },
+          { "wd": "教育信息化" },
+          { "wd": "智慧教室" },
+          { "wd": "校园综合管理" }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "智慧校园"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-smart-park",
+      "name": "湖北公共资源交易 · 智慧园区标讯",
+      "kind": "json_list",
+      "config": {
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "智慧园区" },
+          { "wd": "数字园区" },
+          { "wd": "园区数字化" },
+          { "wd": "园区信息化" },
+          { "wd": "园区管理平台" },
+          { "wd": "智慧化工园区" }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "智慧园区"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-digital-housing",
+      "name": "湖北公共资源交易 · 数字住建标讯",
+      "kind": "json_list",
+      "config": {
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          { "wd": "数字住建" },
+          { "wd": "智慧住建" },
+          { "wd": "住建信息化" },
+          { "wd": "城市生命线" },
+          { "wd": "城市运行管理服务平台" },
+          { "wd": "城市信息模型" },
+          { "wd": "CIM平台" },
+          { "wd": "房屋安全监测" },
+          { "wd": "智慧物业" },
+          { "wd": "工程建设项目审批" },
+          { "wd": "城市数字公共基础设施" }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "数字住建"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-procurement-intentions",
+      "name": "中国湖北政府采购网 · 省级采购意向",
+      "kind": "web_list",
+      "config": {
+        "url": "http://www.ccgp-hubei.gov.cn/notice/cgyxgg/sjcgyxgg/index_1.html",
+        "itemSelector": ".news-list-content > li:has(> a[href*=\"/cgyxgg_\"])",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "http://www.ccgp-hubei.gov.cn/notice/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "湖北标讯",
+        "采购意向"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wechat-shushuo123-hubei",
+      "name": "数说123之湖北",
+      "kind": "mp_account",
+      "config": {
+        "nickname": "数说123之湖北"
+      },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "enabled": false,
+      "interval_minutes": 360,
+      "tags": [
+        "微信公众号",
+        "湖北标讯"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }

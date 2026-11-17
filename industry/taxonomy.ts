@@ -38,7 +38,7 @@ export const ITEM_TYPES = ["policy_standard", "product_launch", "tool_or_prompt"
 export const CATEGORY_TAGS = ["政策/标准", "项目进展", "招标采购", "投融资", "案例/实践", "产品/技术", "研究/观点", "行业动态", "其他"] as const;
 
 /** 可选的主题标签。 */
-export const TOPIC_TAGS = ["水网", "新型电网", "算力网", "新一代通信网", "城市地下管网", "物流网", "BIM/CIM", "智慧工地", "建筑机器人", "数字孪生", "AI+建造", "多网协同"] as const;
+export const TOPIC_TAGS = ["水网", "新型电网", "算力网", "新一代通信网", "城市地下管网", "物流网", "BIM/CIM", "智慧工地", "建筑机器人", "数字孪生", "AI+建造", "多网协同", "湖北标讯", "智慧校园", "智慧园区", "数字住建"] as const;
 
 /** 可选的实体标签。 */
 export const ENTITY_TAGS = ["国家发展改革委", "住房城乡建设部", "湖北省发展改革委", "湖北省住建厅", "湖北省经信厅", "中建集团", "中建三局"] as const;
