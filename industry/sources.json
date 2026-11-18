@@ -848,6 +848,122 @@
       "syndicate_fulltext": false
     },
     {
+      "id": "wechat-china-optics-valley",
+      "name": "中国光谷",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzA3MzE3MTcxMQ==",
+        "nickname": "中国光谷"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "enabled": false,
+      "interval_minutes": 360,
+      "tags": [
+        "微信公众号",
+        "六张网",
+        "新一代通信网"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wechat-hubei-housing",
+      "name": "湖北住建",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzI2NTc5MTI0Mw==",
+        "nickname": "湖北住建"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "enabled": false,
+      "interval_minutes": 360,
+      "tags": [
+        "微信公众号",
+        "城市更新",
+        "城市地下管网"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wechat-construction-info",
+      "name": "建设信息网",
+      "kind": "mp_account",
+      "config": {
+        "biz": "Mzg5NjI0MTI2NQ==",
+        "nickname": "建设信息网"
+      },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "enabled": false,
+      "interval_minutes": 360,
+      "tags": [
+        "微信公众号",
+        "六张网"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wechat-general-aviation",
+      "name": "通航圈",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzU1MDA1MDA3OA==",
+        "nickname": "通航圈"
+      },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "enabled": false,
+      "interval_minutes": 360,
+      "tags": [
+        "微信公众号",
+        "低空经济"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wechat-central-china-engineering",
+      "name": "华中建设工程网",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzE5MTU5ODkxMA==",
+        "nickname": "华中建设工程网"
+      },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "enabled": false,
+      "interval_minutes": 360,
+      "tags": [
+        "微信公众号",
+        "工程项目动态"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wechat-china-development-reform",
+      "name": "中国发展改革",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzAwMDA4Njc4MA==",
+        "nickname": "中国发展改革"
+      },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "enabled": false,
+      "interval_minutes": 360,
+      "tags": [
+        "微信公众号",
+        "六张网"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
       "id": "ndrc-investment",
       "name": "国家发展改革委投资司 · 重要工作",
       "kind": "web_list",
