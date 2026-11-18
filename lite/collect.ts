@@ -9,8 +9,9 @@ import { normalizeUrl } from "../packages/backend/src/lib/url.ts";
 import type { Candidate, SourceRow } from "../packages/backend/src/sources/types.ts";
 import { topics } from "./topics.mjs";
 
-type Entry = { title: string; url: string; source: string; date: string; topics: string[]; tender: boolean };
+type Entry = { title: string; url: string; source: string; date: string; topics: string[]; tender: boolean; curated?: true };
 type Feed = { updated: string; updatedLabel: string; items: Entry[] };
+type WechatLink = Pick<Entry, "title" | "url" | "date" | "topics"> & { sourceId: string };
 
 const archiveDays = 120;
 const now = new Date();
@@ -58,7 +59,7 @@ async function read(source: SourceRow) {
   return { found: items.length, items: items.map((item) => normalize(item, source)).filter((item): item is Entry => item !== null) };
 }
 
-const entries = new Map((previous?.items ?? []).filter((item) => item.date >= earliest).map((item) => [item.url, item]));
+const entries = new Map((previous?.items ?? []).filter((item) => !item.curated && item.date >= earliest).map((item) => [item.url, item]));
 let successful = 0;
 let tenderSources = 0;
 let newsSources = 0;
@@ -82,9 +83,20 @@ for (const source of sources) {
   }
 }
 
+const wechatLinks: WechatLink[] = JSON.parse(readFileSync(new URL("./wechat-links.json", import.meta.url), "utf8"));
+for (const { sourceId, title, url, date, topics: selectedTopics } of wechatLinks) {
+  const source = input.sources.find((source) => source.id === sourceId && source.kind === "mp_account");
+  if (!source || !title.trim() || !/^https:\/\/mp\.weixin\.qq\.com\/s\/[\w-]+$/.test(url) ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(date) || !selectedTopics.every((id) => topics.some((topic) => topic.id === id))) {
+    throw new Error(`Invalid curated WeChat link for ${sourceId}`);
+  }
+  if (date < earliest || date > currentDate || entries.has(url)) continue;
+  entries.set(url, { title, url, date, source: `${source.name} · 微信公众号`, topics: selectedTopics, tender: false, curated: true });
+}
+
 const items = [...entries.values()].sort((a, b) => b.date.localeCompare(a.date) || a.url.localeCompare(b.url));
 console.log(`Sources ${successful}/${sources.length} (${newsSources} web, ${tenderSources} Hubei searches). Feed ${items.length} items (${items.filter((item) => item.tender).length} tenders).`);
-if (!tenderSources || !newsSources || !items.some((item) => item.tender) || !items.some((item) => !item.tender)) {
+if (!tenderSources || !newsSources || !items.some((item) => item.tender) || !items.some((item) => !item.tender && !item.curated)) {
   throw new Error("Collection must verify both Hubei tender searches and industry articles before publishing");
 }
 mkdirSync(out, { recursive: true });
