@@ -74,7 +74,7 @@ try {
   const matches = feed.items.filter((item) => /^https?:\/\//.test(item.url) && (!tenderView || item.tender) &&
     (!topic || item.topics.includes(topic.id)) && (!query || `${item.title} ${item.source}`.toLowerCase().includes(query.toLowerCase())));
   updated.dateTime = feed.updated;
-  updated.textContent = `最近更新 ${new Intl.DateTimeFormat("zh-CN", { timeZone: "Asia/Shanghai", dateStyle: "medium", timeStyle: "short" }).format(new Date(feed.updated))}`;
+  updated.textContent = `最近更新 ${feed.updatedLabel}`;
   updated.hidden = false;
   let count = 0;
   const renderNext = () => {

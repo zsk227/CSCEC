@@ -1,7 +1,7 @@
 // Builds a public list from the approved web and JSON sources, without a database or model calls.
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { beijingDate } from "@aihot/contracts/time";
+import { beijingDate, beijingTime } from "@aihot/contracts/time";
 import { assertSupportedConfig } from "../packages/backend/src/sources/config-keys.ts";
 import { fetchJsonList } from "../packages/backend/src/sources/json-list.ts";
 import { fetchDetail, fetchWebList } from "../packages/backend/src/sources/web-list.ts";
@@ -10,7 +10,7 @@ import type { Candidate, SourceRow } from "../packages/backend/src/sources/types
 import { topics } from "./topics.mjs";
 
 type Entry = { title: string; url: string; source: string; date: string; topics: string[]; tender: boolean };
-type Feed = { updated: string; items: Entry[] };
+type Feed = { updated: string; updatedLabel: string; items: Entry[] };
 
 const archiveDays = 120;
 const now = new Date();
@@ -89,4 +89,5 @@ if (!tenderSources || !newsSources || !items.some((item) => item.tender) || !ite
 }
 mkdirSync(out, { recursive: true });
 const unchanged = previous && JSON.stringify(previous.items) === JSON.stringify(items);
-writeFileSync(join(out, "feed.json"), JSON.stringify({ updated: unchanged ? previous.updated : now.toISOString(), items } satisfies Feed));
+const updated = unchanged ? previous.updated : now.toISOString();
+writeFileSync(join(out, "feed.json"), JSON.stringify({ updated, updatedLabel: `${beijingDate(updated)} ${beijingTime(updated)}`, items } satisfies Feed));
