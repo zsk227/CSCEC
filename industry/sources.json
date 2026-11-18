@@ -1,5 +1,5 @@
 {
-  "$comment": "首批公开信源。已存在的旧信源可在后台停用，导入不会删除旧记录。",
+  "$comment": "已审阅信源。微信公众号已核实账号，待配置采集服务后启用；访问受限或动态列表未适配的来源保留为停用。种子导入保留后台已有修改；旧官网来源改公众号时按部署说明停用旧条目。",
   "sources": [
     {
       "id": "ndrc-local",
@@ -125,66 +125,6 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "cscec3b-news",
-      "name": "中建三局 · 公司快讯",
-      "kind": "web_list",
-      "config": {
-        "url": "https://3bur.cscec.com/xwzx11/gskx11/",
-        "parseMode": "html",
-        "itemSelector": "tr:has(> td.bt_date)",
-        "linkSelector": "td a[href$=\".html\"]",
-        "titleSelector": "td a[href$=\".html\"]",
-        "publishedAtSelector": "td.bt_date",
-        "allowUrlPrefixes": [
-          "https://3bur.cscec.com/xwzx11/gskx11/"
-        ],
-        "sortByPublishedAt": true,
-        "_aihot": {
-          "initialBackfillLimit": 12
-        }
-      },
-      "tier": "T1",
-      "selection_class": "corporate",
-      "owner_entity_id": "cscec3b",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "cscec3b-digital-news",
-      "name": "中建三局数字工程公司 · 公司要闻",
-      "kind": "web_list",
-      "config": {
-        "url": "https://3baz.cscec.com/xwzx/gsyw/",
-        "parseMode": "html",
-        "itemSelector": ".cnewlist > li:has(> a[href$=\".html\"]):has(> span)",
-        "linkSelector": "a",
-        "titleSelector": "a",
-        "publishedAtSelector": "span",
-        "allowUrlPrefixes": [
-          "https://3baz.cscec.com/xwzx/gsyw/"
-        ],
-        "sortByPublishedAt": true,
-        "_aihot": {
-          "initialBackfillLimit": 12
-        }
-      },
-      "tier": "T1",
-      "selection_class": "corporate",
-      "owner_entity_id": "cscec3b-digital",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
       "id": "hb-tenders-digital-construction",
       "name": "湖北公共资源交易 · 数智建造标讯",
       "kind": "json_list",
@@ -242,12 +182,24 @@
           "initialBackfillLimit": 18
         },
         "bodyJsonVariants": [
-          { "wd": "智能建造" },
-          { "wd": "数智建造" },
-          { "wd": "智慧工地" },
-          { "wd": "建筑机器人" },
-          { "wd": "工程数字化" },
-          { "wd": "BIM" }
+          {
+            "wd": "智能建造"
+          },
+          {
+            "wd": "数智建造"
+          },
+          {
+            "wd": "智慧工地"
+          },
+          {
+            "wd": "建筑机器人"
+          },
+          {
+            "wd": "工程数字化"
+          },
+          {
+            "wd": "BIM"
+          }
         ],
         "sortByPublishedAt": true
       },
@@ -319,24 +271,60 @@
           "initialBackfillLimit": 18
         },
         "bodyJsonVariants": [
-          { "wd": "水网" },
-          { "wd": "供水管网" },
-          { "wd": "污水管网" },
-          { "wd": "排水防涝" },
-          { "wd": "输水" },
-          { "wd": "综合管廊" },
-          { "wd": "新型电网" },
-          { "wd": "配电网" },
-          { "wd": "算力" },
-          { "wd": "智算" },
-          { "wd": "数据中心" },
-          { "wd": "通信网" },
-          { "wd": "5G" },
-          { "wd": "千兆光网" },
-          { "wd": "物流枢纽" },
-          { "wd": "物流园区" },
-          { "wd": "智慧物流" },
-          { "wd": "多式联运" }
+          {
+            "wd": "水网"
+          },
+          {
+            "wd": "供水管网"
+          },
+          {
+            "wd": "污水管网"
+          },
+          {
+            "wd": "排水防涝"
+          },
+          {
+            "wd": "输水"
+          },
+          {
+            "wd": "综合管廊"
+          },
+          {
+            "wd": "新型电网"
+          },
+          {
+            "wd": "配电网"
+          },
+          {
+            "wd": "算力"
+          },
+          {
+            "wd": "智算"
+          },
+          {
+            "wd": "数据中心"
+          },
+          {
+            "wd": "通信网"
+          },
+          {
+            "wd": "5G"
+          },
+          {
+            "wd": "千兆光网"
+          },
+          {
+            "wd": "物流枢纽"
+          },
+          {
+            "wd": "物流园区"
+          },
+          {
+            "wd": "智慧物流"
+          },
+          {
+            "wd": "多式联运"
+          }
         ],
         "sortByPublishedAt": true
       },
@@ -408,12 +396,24 @@
           "initialBackfillLimit": 18
         },
         "bodyJsonVariants": [
-          { "wd": "智慧校园" },
-          { "wd": "数字校园" },
-          { "wd": "校园信息化" },
-          { "wd": "教育信息化" },
-          { "wd": "智慧教室" },
-          { "wd": "校园综合管理" }
+          {
+            "wd": "智慧校园"
+          },
+          {
+            "wd": "数字校园"
+          },
+          {
+            "wd": "校园信息化"
+          },
+          {
+            "wd": "教育信息化"
+          },
+          {
+            "wd": "智慧教室"
+          },
+          {
+            "wd": "校园综合管理"
+          }
         ],
         "sortByPublishedAt": true
       },
@@ -485,12 +485,24 @@
           "initialBackfillLimit": 18
         },
         "bodyJsonVariants": [
-          { "wd": "智慧园区" },
-          { "wd": "数字园区" },
-          { "wd": "园区数字化" },
-          { "wd": "园区信息化" },
-          { "wd": "园区管理平台" },
-          { "wd": "智慧化工园区" }
+          {
+            "wd": "智慧园区"
+          },
+          {
+            "wd": "数字园区"
+          },
+          {
+            "wd": "园区数字化"
+          },
+          {
+            "wd": "园区信息化"
+          },
+          {
+            "wd": "园区管理平台"
+          },
+          {
+            "wd": "智慧化工园区"
+          }
         ],
         "sortByPublishedAt": true
       },
@@ -562,17 +574,39 @@
           "initialBackfillLimit": 18
         },
         "bodyJsonVariants": [
-          { "wd": "数字住建" },
-          { "wd": "智慧住建" },
-          { "wd": "住建信息化" },
-          { "wd": "城市生命线" },
-          { "wd": "城市运行管理服务平台" },
-          { "wd": "城市信息模型" },
-          { "wd": "CIM平台" },
-          { "wd": "房屋安全监测" },
-          { "wd": "智慧物业" },
-          { "wd": "工程建设项目审批" },
-          { "wd": "城市数字公共基础设施" }
+          {
+            "wd": "数字住建"
+          },
+          {
+            "wd": "智慧住建"
+          },
+          {
+            "wd": "住建信息化"
+          },
+          {
+            "wd": "城市生命线"
+          },
+          {
+            "wd": "城市运行管理服务平台"
+          },
+          {
+            "wd": "城市信息模型"
+          },
+          {
+            "wd": "CIM平台"
+          },
+          {
+            "wd": "房屋安全监测"
+          },
+          {
+            "wd": "智慧物业"
+          },
+          {
+            "wd": "工程建设项目审批"
+          },
+          {
+            "wd": "城市数字公共基础设施"
+          }
         ],
         "sortByPublishedAt": true
       },
@@ -582,6 +616,95 @@
       "tags": [
         "湖北标讯",
         "数字住建"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-low-altitude",
+      "name": "湖北公共资源交易 · 低空经济标讯",
+      "kind": "json_list",
+      "config": {
+        "url": "https://www.hbggzy.cn/inteligentsearch/rest/esinteligentsearch/getFullTextDataNew",
+        "method": "POST",
+        "bodyJson": {
+          "pn": 0,
+          "rn": 12,
+          "wd": "",
+          "fields": "title;content",
+          "cnum": "001",
+          "sort": "{\"webdate\":0}",
+          "cl": 1500,
+          "highlights": "title",
+          "noParticiple": "1",
+          "isBusiness": "1",
+          "condition": [
+            {
+              "fieldName": "categorynum",
+              "equalList": [
+                "003001002",
+                "003001003",
+                "003001004",
+                "003001005",
+                "003001006",
+                "003002001",
+                "003002002",
+                "003002003",
+                "003002004"
+              ]
+            },
+            {
+              "fieldName": "xiaqucode",
+              "equal": "42",
+              "isLike": true,
+              "likeType": 2
+            }
+          ]
+        },
+        "itemsPath": "result.records",
+        "titlePaths": [
+          "title"
+        ],
+        "publishedAtPath": "webdate",
+        "summaryPaths": [
+          "content"
+        ],
+        "urlTemplate": "https://www.hbggzy.cn{raw:linkurl}",
+        "allowUrlPrefixes": [
+          "https://www.hbggzy.cn/jyxx/003001/",
+          "https://www.hbggzy.cn/jyxx/003002/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 18
+        },
+        "bodyJsonVariants": [
+          {
+            "wd": "低空经济"
+          },
+          {
+            "wd": "低空基础设施"
+          },
+          {
+            "wd": "无人机机场"
+          },
+          {
+            "wd": "无人机巡检"
+          },
+          {
+            "wd": "一网统飞"
+          },
+          {
+            "wd": "起降场"
+          }
+        ],
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 90,
+      "tags": [
+        "湖北标讯",
+        "低空经济"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
@@ -618,6 +741,7 @@
       "name": "数说123之湖北",
       "kind": "mp_account",
       "config": {
+        "biz": "MzkyMDY2ODk3NA==",
         "nickname": "数说123之湖北"
       },
       "tier": "T2",
@@ -627,6 +751,590 @@
       "tags": [
         "微信公众号",
         "湖北标讯"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wechat-cscec3b",
+      "name": "中建三局",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzA3MjQ5NTI2MA==",
+        "nickname": "中建三局"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "enabled": false,
+      "tags": [
+        "微信公众号"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "owner_entity_id": "cscec3b"
+    },
+    {
+      "id": "wechat-cscec3b-digital",
+      "name": "中建三局数字工程公司",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzA3MDg5MTc4Ng==",
+        "nickname": "中建三局数字工程公司"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "enabled": false,
+      "tags": [
+        "微信公众号"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "owner_entity_id": "cscec3b-digital"
+    },
+    {
+      "id": "wechat-low-altitude-observer",
+      "name": "低空经济观察者",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzkzNDI1Njc2NA==",
+        "nickname": "低空经济观察者"
+      },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "enabled": false,
+      "tags": [
+        "微信公众号"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wechat-city-low-altitude",
+      "name": "共见城市低空",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzU5ODE0MzMzNQ==",
+        "nickname": "共见城市低空"
+      },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "enabled": false,
+      "tags": [
+        "微信公众号"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wechat-construction-window",
+      "name": "施工企业之窗",
+      "kind": "mp_account",
+      "config": {
+        "biz": "MzI4OTQxMTEzNQ==",
+        "nickname": "施工企业之窗"
+      },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "enabled": false,
+      "tags": [
+        "微信公众号"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "ndrc-investment",
+      "name": "国家发展改革委投资司 · 重要工作",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.ndrc.gov.cn/fzggw/jgsj/tzs/sjdt/",
+        "parseMode": "html",
+        "itemSelector": ".u-list > li:has(a)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtSelector": "span",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-housing-policy",
+      "name": "湖北省住建厅 · 正式文件",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/",
+        "parseMode": "html",
+        "itemSelector": ".info-list > li:has(a)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})",
+        "allowUrlPrefixes": [
+          "https://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/"
+        ]
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": false,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-education-notices",
+      "name": "湖北省教育厅 · 通知公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://jyt.hubei.gov.cn/bmdt/tzgg/",
+        "parseMode": "html",
+        "itemSelector": "li.col-md-6:has(h4 a)",
+        "linkSelector": "h4 a",
+        "titleSelector": "h4 a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtUtcOffset": "+08:00",
+        "detail": {
+          "maxFetches": 20,
+          "publishedAtSelector": "meta[name=\"PubDate\"]"
+        },
+        "allowUrlPrefixes": [
+          "https://jyt.hubei.gov.cn/bmdt/tzgg/"
+        ]
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-miit-notices",
+      "name": "湖北省经信厅 · 公示公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://jxt.hubei.gov.cn/fbjd/zc/qtzdgkwj/gsgg/",
+        "parseMode": "html",
+        "itemSelector": ".info-list > li:has(a)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtSelector": "span",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "optics-valley-notices",
+      "name": "武汉东湖高新区 · 通知公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.wehdz.gov.cn/2022/ggxw_68627/tz_68628/",
+        "parseMode": "html",
+        "itemSelector": "li:has(> a):has(> span):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})",
+        "allowUrlPrefixes": [
+          "https://www.wehdz.gov.cn/2022/ggxw_68627/tz_68628/"
+        ]
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wuhan-urban-files",
+      "name": "武汉自然资源和城建局 · 最新文件",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zrzyhgh.wuhan.gov.cn/gsggzx/zxwj/",
+        "parseMode": "html",
+        "itemSelector": ".gsggzx-ul > li:has(a)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-data-news",
+      "name": "湖北省数据局 · 湖北要闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://sjj.hubei.gov.cn/bmdt/esyw/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href*=\"/20\"]):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": false,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mohurd-policy",
+      "name": "住房城乡建设部 · 文件库",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href*=\"/art/\"]):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": false,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wuhan-water-news",
+      "name": "武汉市水务局 · 行业看点",
+      "kind": "web_list",
+      "config": {
+        "url": "https://swj.wuhan.gov.cn/tzdt/hykd/",
+        "parseMode": "html",
+        "itemSelector": ".list-b > li:has(a)",
+        "linkSelector": "a",
+        "titleSelector": "h4",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})",
+        "publishedAtSelector": ".date",
+        "allowUrlPrefixes": [
+          "https://swj.wuhan.gov.cn/tzdt/hykd/"
+        ]
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "central-energy-news",
+      "name": "国家能源局华中监管局 · 监管动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://hzj.nea.gov.cn/dtyw/jgdt/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href*=\"/20\"]):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a span:first-child",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})",
+        "publishedAtSelector": "a span:last-child",
+        "allowUrlPrefixes": [
+          "https://hzj.nea.gov.cn/dtyw/jgdt/"
+        ]
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-communications-news",
+      "name": "湖北省通信管理局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://hubca.miit.gov.cn/xwdt/gzdt/index.html",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href*=\"/art/\"]):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": false,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-transport-news",
+      "name": "湖北省交通运输厅 · 交通要闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://jtt.hubei.gov.cn/bmdt/jtyw/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href*=\"/20\"]):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": false,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wuhan-renewal-policy",
+      "name": "武汉市住房和城市更新局 · 政策文件",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zgj.wuhan.gov.cn/ztzl/wgshcsgx/zcwj_csgx/",
+        "parseMode": "html",
+        "itemSelector": ".list-t > li:has(a)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-exchange-notices",
+      "name": "湖北公共资源电子交易服务系统 · 招采动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.hbggzyfwpt.cn/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href*=\"Detail\"]):has(span):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtSelector": "span",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "cscec-digital-procurement",
+      "name": "三局数字公司 · 集采服务",
+      "kind": "web_list",
+      "config": {
+        "url": "https://jc.cscec3bmep.com/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": false,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "yunzhu-procurement",
+      "name": "云筑 · 公开集采",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.yzw.cn/home/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": false,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "national-procurement",
+      "name": "中国政府采购网 · 地方公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.ccgp.gov.cn/cggg/dfgg/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": false,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-drc-news",
+      "name": "湖北省发展改革委 · 发改动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://fgw.hubei.gov.cn/fbjd/sjdt/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href*=\"/20\"]):not(:has(li))",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": false,
+      "tags": [
+        "官方"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false

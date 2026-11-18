@@ -14,6 +14,7 @@
 export const CATEGORIES = [
   { key: "digital-construction", tagColor: "turquoise", label: "数字建造", section: "数字建造", guide: "涉及工程的数字化设计、智慧工地、智能生产、建筑机器人、工程 AI 与数字化运维。" },
   { key: "six-networks", tagColor: "indigo", label: "六张网", section: "六张网", guide: "以水网、新型电网、算力网、新一代通信网、城市地下管网、物流网及多网协同的规划建设与运营为核心。" },
+  { key: "low-altitude", tagColor: "blue", label: "低空经济", section: "低空经济", guide: "低空经济政策、空域与运行服务、起降设施、低空通信导航监视、无人机物流巡检和低空项目建设。项目公告优先归项目与招采并加低空经济标签。" },
   { key: "projects", tagColor: "orange", label: "项目与招采", section: "项目与招采", guide: "核心信息是项目清单、招采、签约、开工、验收、投运或投融资节点，且项目与本站主题相关。" },
   { key: "industry", tagColor: "violet", label: "政策与产业", section: "政策与产业", guide: "跨领域的政策标准、行业机制、市场变化和机构动态。只针对一张网的专项建设方案归六张网。" },
   { key: "practice", tagColor: "green", label: "案例与方法", section: "案例与方法", guide: "核心信息是可复用的工程案例、实施方法、技术研究、工程标准实践或基于证据的分析。" },
@@ -38,7 +39,7 @@ export const ITEM_TYPES = ["policy_standard", "product_launch", "tool_or_prompt"
 export const CATEGORY_TAGS = ["政策/标准", "项目进展", "招标采购", "投融资", "案例/实践", "产品/技术", "研究/观点", "行业动态", "其他"] as const;
 
 /** 可选的主题标签。 */
-export const TOPIC_TAGS = ["水网", "新型电网", "算力网", "新一代通信网", "城市地下管网", "物流网", "BIM/CIM", "智慧工地", "建筑机器人", "数字孪生", "AI+建造", "多网协同", "湖北标讯", "智慧校园", "智慧园区", "数字住建"] as const;
+export const TOPIC_TAGS = ["水网", "新型电网", "算力网", "新一代通信网", "城市地下管网", "物流网", "BIM/CIM", "智慧工地", "建筑机器人", "数字孪生", "AI+建造", "多网协同", "湖北标讯", "智慧校园", "智慧园区", "数字住建", "低空经济", "低空基础设施", "无人机应用"] as const;
 
 /** 可选的实体标签。 */
 export const ENTITY_TAGS = ["国家发展改革委", "住房城乡建设部", "湖北省发展改革委", "湖北省住建厅", "湖北省经信厅", "中建集团", "中建三局", "中建三局数字工程公司"] as const;

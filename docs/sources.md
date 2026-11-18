@@ -212,7 +212,7 @@ http.createServer((req, res) => {
 
 每个公众号按它的抓取间隔检查一次（查列表按次计费），新文章的正文一并取回。
 
-需要在后端 `.env` 配置 `DAJIALA_KEY`，`ghid` 换成公众号原始 ID。配置字段用上面的 `ghid` / `nickname`，不要写成 `biz` / `name`。当前 `mp_account` 不支持“预览抓取”；`external` 也不支持主动试抓，按下方推送接口接入。
+在后端 `.env` 配置 `DAJIALA_KEY`。已核实微信原文链接时，可将 `__biz` 的参数值填入 `biz`。也可以使用公众号原始 ID `ghid`，已有的 `wxid` 配置继续可用。`nickname` 用于记录账号名称。配置了 `biz` 时优先用它查询。当前 `mp_account` 不支持“预览抓取”，可在信源详情使用“立即采集”。`external` 按下方推送接口接入。
 
 ## 分级、参与方式与全文
 

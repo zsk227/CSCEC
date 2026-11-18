@@ -20,7 +20,7 @@ const KEYS: Record<SourceRow["kind"], string[]> = {
   ],
   // X accounts are mostly read in shards, which apply only these.
   x_search: [...PUBLISHER, "_aihot", "ingestNoiseFilter", "itemUrlPrefixRewrite", "query", "searchType"],
-  mp_account: [...PUBLISHER, "wxid", "ghid", "nickname"],
+  mp_account: [...PUBLISHER, "biz", "wxid", "ghid", "nickname"],
   external: [...PUBLISHER],
 };
 
@@ -79,6 +79,8 @@ export function unsupportedConfig(kind: SourceRow["kind"], config: Record<string
     else if (key === "publishedAtForFallbackUrl" && (typeof value !== "boolean"
       || value && (!config.urlTemplate || !config.urlTemplateFallback || !config.publishedAtPath))) out.push(key);
     else if (key === "acceptLanguage" && (typeof value !== "string" || !ACCEPT_LANGUAGE.test(value))) out.push(key);
+    else if (key === "biz" && (typeof value !== "string" || !/^\d{8,10}$/.test(Buffer.from(value, "base64").toString("utf8"))
+      || Buffer.from(value, "base64").toString("base64") !== value)) out.push(key);
     else if (key === "publisherUrlPrefixes" && (!Array.isArray(value) || !value.every((v) => {
       if (typeof v !== "string") return false;
       try { const u = new URL(v); return /^https?:$/.test(u.protocol) && !u.username && !u.password && !u.search && !u.hash; } catch { return false; }

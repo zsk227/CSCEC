@@ -43,7 +43,7 @@ const subjectLinks = [
   { name: "智慧校园", href: "/all?tag=智慧校园" },
   { name: "智慧园区", href: "/all?tag=智慧园区" },
   { name: "数字住建", href: "/all?tag=数字住建" },
-  { name: "全部专题", href: "/topics" },
+  { name: "低空经济", href: "/all?tag=低空经济" },
 ];
 const reading = [
   { title: "全国智能建造工作会", source: "住房城乡建设部", href: "https://www.mohurd.gov.cn/xinwen/jsyw/art/2025/art_d78f4db2f9e646fb94c623e506e16051.html" },
