@@ -23,9 +23,15 @@ const sources = input.sources.filter((source) => source.enabled !== false && ["w
 const previous: Feed | undefined = old && existsSync(old) ? JSON.parse(readFileSync(old, "utf8")) : undefined;
 const notice = /招标|采购|成交|中标|竞争性(?:磋商|谈判)|询价|询比/;
 
+function topicIds(title: string): string[] {
+  // Search highlights can introduce spaces inside Chinese names, e.g. 城市 生命 线.
+  const text = title.replace(/(?<=\p{Script=Han})\s+(?=\p{Script=Han})/gu, "");
+  return topics.filter((topic) => topic.terms.test(text)).map((topic) => topic.id);
+}
+
 function normalize(item: Candidate, source: SourceRow): Entry | null {
   // A match in the title avoids publishing tenders that mention a keyword only in standard clauses.
-  const matched = topics.filter((topic) => topic.terms.test(item.title)).map((topic) => topic.id);
+  const matched = topicIds(item.title);
   if (!matched.length || !item.publishedAt) return null;
   const url = normalizeUrl(item.url);
   if (!url || !/^https?:\/\//.test(url) || new URL(url).username || new URL(url).password) return null;
@@ -44,7 +50,7 @@ async function read(source: SourceRow) {
   const items = await (source.kind === "json_list" ? fetchJsonList(source) : fetchWebList(source));
   let dateReads = 0;
   for (const item of items) {
-    if (item.publishedAt || !source.config.detail || dateReads >= 4 || !topics.some((topic) => topic.terms.test(item.title))) continue;
+    if (item.publishedAt || !source.config.detail || dateReads >= 4 || !topicIds(item.title).length) continue;
     dateReads++;
     const detail = await fetchDetail(item.url, source, { date: true, title: false, summary: false, body: false }).catch(() => null);
     if (detail?.publishedAt) item.publishedAt = detail.publishedAt;
