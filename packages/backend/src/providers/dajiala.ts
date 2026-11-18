@@ -57,15 +57,15 @@ function outcomeOf(json: { code?: number; msg?: string; cost_money?: number }, l
 }
 
 /** Latest posts of one account (first page, newest first). `window` buckets the receipt identity. */
-export async function mpHistory(ghid: string, opts: { subject: string; window: string }): Promise<MpHistory> {
+export async function mpHistory(account: { biz: string } | { ghid: string }, opts: { subject: string; window: string }): Promise<MpHistory> {
   const { url, key } = base();
   const receipt = await paidRequest(
-    { service: "dajiala", purpose: "mp_history", subject: opts.subject, identity: { ghid, window: opts.window }, requestSummary: { ghid } },
+    { service: "dajiala", purpose: "mp_history", subject: opts.subject, identity: { ...account, window: opts.window }, requestSummary: account },
     async () => {
       const res = await guardedFetch(`${url}/fbmain/monitor/v3/post_history`, {
         method: "POST",
         headers: { "content-type": "application/json", accept: "application/json" },
-        body: JSON.stringify({ ghid, key, verifycode: "" }),
+        body: JSON.stringify({ ...account, key, verifycode: "" }),
         timeoutMs: 30_000,
         route: "direct",
       });

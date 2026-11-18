@@ -1,6 +1,6 @@
 // Worker process: queues and schedules for collection, processing, events, reports and ops, and the site's
 // modules (site/modules/server.ts).
-import { assertProductionSecrets } from "@aihot/backend/config";
+import { assertProductionSecrets, config } from "@aihot/backend/config";
 import { closeDb } from "@aihot/backend/db";
 import { getBoss, stopBoss, workModuleQueues } from "@aihot/backend/jobs/queue";
 import { installModules } from "@aihot/backend/modules";
@@ -21,7 +21,8 @@ assertProductionSecrets([["auth", "IMG_PROXY_SIGN_SECRET"]]);
 await ensureContentTargets();
 await closeInterruptedRuns();
 const boss = await getBoss({ supervise: true });
-await registerContentJobs(boss);
+// Collection can run without a model. Leave analysis queued so it can resume when models are turned on.
+if (config.modelCallsEnabled) await registerContentJobs(boss);
 if (process.env.COLLECT_ENABLED === "true") await registerSourceJobs(boss);
 await registerEventJobs(boss);
 await registerNotifyJobs(boss);

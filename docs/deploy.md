@@ -5,12 +5,14 @@
 需要一台装了 Docker（带 Compose）的机器。云服务器建议至少 2 核、4 GB 内存，构建镜像时要用到。
 
 ```bash
-git clone https://github.com/KKKKhazix/AIHOT.git myhot
-cd myhot
-node scripts/init-env.ts --llm-key <你的模型 API Key>
+git clone https://github.com/zsk227/CSCEC.git
+cd CSCEC
+node scripts/init-env.ts
 ```
 
-`init-env.ts` 会生成 `.env`，填好随机密钥和管理员密码，并把密码打印一次。机器上没有 Node 的话，把 `.env.example` 复制成 `.env`，自己填 `ADMIN_PASSWORD`（至少 12 位）、`SESSION_SECRET`、`IMG_PROXY_SIGN_SECRET`、`POSTGRES_PASSWORD`（各用 `openssl rand -hex 32` 生成）和 `LLM_API_KEY`。
+从包含行业资讯改动的版本部署。在改动合并前，服务器须检出对应分支或使用该版本的源码包。`init-env.ts` 会生成 `.env`，填好随机密钥和管理员密码，并把密码打印一次。机器上没有 Node 的话，把 `.env.example` 复制成 `.env`，自己填 `ADMIN_PASSWORD`（至少 12 位）、`SESSION_SECRET`、`IMG_PROXY_SIGN_SECRET`、`POSTGRES_PASSWORD`（各用 `openssl rand -hex 32` 生成）。
+
+先只采集官网和湖北标讯时，在 `.env` 中设置 `COLLECT_ENABLED=true` 和 `MODEL_CALLS_ENABLED=false`，并留空 `DAJIALA_KEY`。后台按各信源设定的频率抓取资料，在「运行」和「信源」查看结果。新资料等待模型处理。若要自动生成公开资讯、分类和摘要，填写 `LLM_BASE_URL`、`LLM_API_KEY` 与 `LLM_MODEL`，设 `MODEL_CALLS_ENABLED=true`，再执行 `docker compose up -d` 让容器加载新配置。公众号可以继续暂停。
 
 启动前检查 `.env` 的 `SITE_URL`：本机试用保留 `http://localhost:3000`；部署到服务器时改成读者实际访问的地址。例如通过服务器 IP 访问时（把示例 IP 换成自己的）：
 
@@ -26,7 +28,7 @@ RSS、分享链接、站点地图和 Agent Markdown 中的绝对链接都使用�
 docker compose up -d --build
 ```
 
-启动后打开 `http://服务器地址:3000`，后台在 `/admin`，用管理员密码登录。第一次启动会导入示范信源，一两分钟后开始出现内容；第一次导入的一百多条资料大约半小时处理完（每条都要预筛、评分、结构化、写标题摘要，再归组）。
+启动后打开 `http://服务器地址:3000`，后台在 `/admin`，用管理员密码登录。首次启动会导入当前版本的信源。开启采集后，后台每分钟检查有哪些信源到期。首轮处理时间取决于来源响应和模型配额。
 
 `docker compose` 会起五个容器：`db`（PostgreSQL 17）、`setup`（每次启动先跑数据库迁移和种子数据，然后退出）、`api`、`worker`（抓取、模型处理、定时任务）、`web`（网页）。`web` 只接收网站地址、API 地址等网页配置，通过 HTTP 读取 API；数据库、模型和管理员密钥，以及数据卷，只交给后端容器。
 
@@ -61,6 +63,14 @@ MCP 默认接受 `SITE_URL` 的主机以及 `localhost`、`127.0.0.1`、`[::1]`�
 前面有 Nginx、CDN 这类缓存时，要遵循应用返回的缓存期限（`Cache-Control`）：公开网页、导航数据、API、RSS、条目 Markdown、报告分享图、站点地图，以及接入说明 `/api/v1/agent` 和 `/openapi-v1.json`（五分钟到期后也要重新验证），都不要另加更长的缓存期，不要在到期后离线返回旧内容，也不要在转发旧响应时重新起算它的寿命；不要让代理和 CDN 叠加缓存动态内容。框架不代管自建站的 CDN，也不替它清缓存。
 
 ### 更新
+
+#### 行业信源与低空专题（2026 年 11 月 18 日）
+
+新增低空经济专题、湖北低空标讯及已审阅的官网和公众号来源。无需新增数据库迁移，部署时照常运行 `scripts/seed.ts`。两家企业改为公众号来源；已有数据库需在后台停用 `cscec3b-news` 和 `cscec3b-digital-news` 两个旧官网来源，原文章继续保留。
+
+六个公众号已核实 `biz`，配置 `DAJIALA_KEY` 后可在后台启用。访问受限、动态列表尚未适配的官网先保持停用。完整状态见 [行业信源接入清单](industry-sources.md)。种子导入会保留后台修改，已有同 ID 来源的配置或启用状态需要在后台更新。
+
+本地布局预览可以关闭采集与模型调用。运行自动筛选、标题摘要和日报前还需要可用的模型配置；缺少模型服务时，试抓资料只在后台待处理，不会自动进入公开资讯列表。
 
 **2026 年 10 月 31 日的引擎同步**有三个数据库迁移（`0090`–`0092`），照下面的命令更新时 setup 会跑它们：信源多一列可选的类别 `selection_class`，反馈多了 `kind`（类型）和 `idea`（归入的建议）两列，都可以为空，旧数据不用改。没有必填的新环境变量。要注意的变化：
 

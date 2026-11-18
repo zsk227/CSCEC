@@ -17,8 +17,12 @@ const MP_SOURCE = `test-mp-${T}`;
 // Dajiala: one new post whose body answers 503 the first time.
 const MP_URL = `https://mp.weixin.qq.com/s/test-${T}`;
 let bodyCalls = 0;
+const historyRequests: Record<string, unknown>[] = [];
 const dajiala = await stub((_hit, req) => {
   if (req.url.startsWith("/fbmain/monitor/v3/post_history")) {
+    const request = JSON.parse(req.body) as Record<string, unknown>;
+    historyRequests.push(request);
+    if (request.biz) return { code: 0, data: [] };
     return { code: 0, data: [{ position: 1, url: MP_URL, title: `公众号文章 ${T}`, post_time: Math.floor(Date.now() / 1000) - 3600, digest: "摘要", sn: `sn-${T}` }], remain_money: 100 };
   }
   bodyCalls += 1;
@@ -49,6 +53,7 @@ test("a WeChat body that failed for a passing reason is fetched on the next chec
 
   const first = await checkMpAccount(MP_SOURCE, "manual");
   assert.equal(first.status, "ok");
+  assert.equal(historyRequests.at(-1)?.ghid, `gh_${T}`);
   assert.deepEqual({ ...(await article()) }, { body_status: "none", revision: 1, retry: { attempts: 1, error: 'dajiala HTTP 503: {"error":"busy"}' } });
 
   const second = await checkMpAccount(MP_SOURCE, "manual");
@@ -61,6 +66,16 @@ test("a WeChat body that failed for a passing reason is fetched on the next chec
 
   await checkMpAccount(MP_SOURCE, "manual");
   assert.equal(bodyCalls, 2, "a body already stored is not bought again");
+});
+
+test("a source with a verified WeChat biz looks up its history by biz", async () => {
+  const id = `${MP_SOURCE}-biz`;
+  const biz = Buffer.from("1234567890").toString("base64");
+  await sql`INSERT INTO sources (id, name, kind, config, tier, participation_mode)
+            VALUES (${id}, 'Verified mp', 'mp_account', ${sql.json({ biz, ghid: "gh_old" })}, 'T2', 'editorial')`;
+  const result = await checkMpAccount(id, "manual");
+  assert.equal(result.status, "ok");
+  assert.deepEqual(historyRequests.at(-1), { biz, key: "test-key", verifycode: "" });
 });
 
 /** A plain HTTP origin for redirect answers; `hits` records every request it receives. */

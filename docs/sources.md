@@ -88,6 +88,8 @@
 
 ### json_list
 
+同一个公开 POST 检索需要分别查多个关键词时，可配置 `bodyJsonVariants`。它是 1–20 个对象的数组，每个对象覆盖 `bodyJson` 的同名字段，按顺序请求后对条目链接去重。例如 `[{"wd":"智慧校园"},{"wd":"数字校园"}]`。在需要按发布时间合并排序时，启用 `sortByPublishedAt`。
+
 假设接口返回下面的结构，`itemsPath` 指向数组，其他字段路径相对**每个数组元素**填写。路径用点分隔，不是 JSONPath，不写 `$` 或 `[*]`。
 
 ```json
@@ -210,7 +212,7 @@ http.createServer((req, res) => {
 
 每个公众号按它的抓取间隔检查一次（查列表按次计费），新文章的正文一并取回。
 
-需要在后端 `.env` 配置 `DAJIALA_KEY`，`ghid` 换成公众号原始 ID。配置字段用上面的 `ghid` / `nickname`，不要写成 `biz` / `name`。当前 `mp_account` 不支持“预览抓取”；`external` 也不支持主动试抓，按下方推送接口接入。
+在后端 `.env` 配置 `DAJIALA_KEY`。已核实微信原文链接时，可将 `__biz` 的参数值填入 `biz`。也可以使用公众号原始 ID `ghid`，已有的 `wxid` 配置继续可用。`nickname` 用于记录账号名称。配置了 `biz` 时优先用它查询。当前 `mp_account` 不支持“预览抓取”，可在信源详情使用“立即采集”。`external` 按下方推送接口接入。
 
 ## 分级、参与方式与全文
 

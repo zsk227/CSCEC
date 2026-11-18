@@ -32,7 +32,7 @@ async function fetchBody(url: string, sourceId: string, identity: string): Promi
 interface MpSource {
   id: string;
   name: string;
-  config: { wxid?: string; ghid?: string; nickname?: string };
+  config: { biz?: string; wxid?: string; ghid?: string; nickname?: string };
   cursor: Record<string, unknown> | null;
   enabled: boolean;
   participation_mode: string;
@@ -43,14 +43,15 @@ export async function checkMpAccount(sourceId: string, reason: "schedule" | "man
   if (!source) return { sourceId, status: "missing" as const };
   if (!source.enabled && reason !== "manual") return { sourceId, status: "paused" as const };
   const ghid = source.config.ghid ?? source.config.wxid;
-  if (!ghid) return { sourceId, status: "unconfigured" as const };
+  const account = source.config.biz ? { biz: source.config.biz } : ghid ? { ghid } : null;
+  if (!account) return { sourceId, status: "unconfigured" as const };
   const [run] = await sql<{ id: number }[]>`INSERT INTO fetch_runs (source_id, detail) VALUES (${sourceId}, ${sql.json({ reason, owner: await runOwner() })}) RETURNING id`;
   const firstCheck = !source.cursor?.lastCheckedAt;
   let created = 0;
   try {
     // One paid list call per account per 10-minute window, whoever asks.
     const window = `${reason === "schedule" ? "s" : "m"}:${Math.floor(Date.now() / 600_000)}`;
-    const history = await mpHistory(ghid, { subject: sourceId, window });
+    const history = await mpHistory(account, { subject: sourceId, window });
     const posts = [...history.posts].sort((a, b) => b.post_time - a.post_time);
     let fetched = 0;
     for (const p of posts) {
