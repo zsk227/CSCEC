@@ -2602,6 +2602,71 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "digital-china-summit-news",
+      "name": "数字中国建设峰会 · 数字快讯",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.digitalchina.gov.cn/2026/xwzx/szkx/",
+        "itemSelector": "li:has(.text_con h3)",
+        "linkSelector": "a[href]",
+        "titleSelector": ".text_con h3",
+        "allowUrlPrefixes": [
+          "https://www.digitalchina.gov.cn/2026/xwzx/szkx/",
+          "https://www.szzg.gov.cn/2026/xwzx/szkx/"
+        ],
+        "detail": {
+          "publishedAtSelector": "meta[name=PubDate]",
+          "publishedAtUtcOffset": "+08:00",
+          "publishedAtAuthoritative": true
+        },
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "shanghai-digital-practice",
+      "name": "上海市城市数字化转型应用促进中心 · 重要通知",
+      "kind": "web_list",
+      "config": {
+        "url": "https://dt.sheitc.sh.gov.cn/cms/slddt/index.jhtml",
+        "itemSelector": "li:has(.m-l-n h3)",
+        "linkSelector": "a[href]",
+        "titleSelector": ".m-l-n h3",
+        "publishedAtSelector": ".m-l-n > span",
+        "allowUrlPrefixes": [
+          "https://dt.sheitc.sh.gov.cn/cms/slddt/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }
