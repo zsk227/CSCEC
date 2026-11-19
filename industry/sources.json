@@ -1454,6 +1454,400 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "gov-policy",
+      "name": "中国政府网 · 政策",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.gov.cn/zhengce/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "https://www.gov.cn/zhengce/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-natural-policy",
+      "name": "湖北省自然资源厅 · 政策文件",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zrzyt.hubei.gov.cn/fbjd/zhengce/gfwj/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "https://zrzyt.hubei.gov.cn/fbjd/zhengce/gfwj/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wuhan-data-news",
+      "name": "武汉市数据局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://whsj.wuhan.gov.cn/gzdt_93640/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "https://whsj.wuhan.gov.cn/gzdt_93640/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wuhan-drc-news",
+      "name": "武汉市发展改革委 · 发展动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://fgw.wuhan.gov.cn/xwzx/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "https://fgw.wuhan.gov.cn/xwzx/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "optics-valley-news",
+      "name": "武汉东湖高新区 · 光谷要闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.wehdz.gov.cn/2022/ggxw_68627/ggxw_68629/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "https://www.wehdz.gov.cn/2022/ggxw_68627/ggxw_68629/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "optics-valley-industry",
+      "name": "武汉东湖高新区 · 产业动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.wehdz.gov.cn/2022/ggxw_68627/cydt_68630/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "https://www.wehdz.gov.cn/2022/ggxw_68627/cydt_68630/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "optics-valley-planning",
+      "name": "武汉东湖高新区 · 规划信息",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.wehdz.gov.cn/2022/zfxxgk/fdzdgk/ghxx_68649/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "https://www.wehdz.gov.cn/2022/zfxxgk/fdzdgk/ghxx_68649/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "yichang-urban-news",
+      "name": "宜昌市自然资源和城乡建设局 · 动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zrzy.yichang.gov.cn/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "http://zrzy.yichang.gov.cn/content-",
+          "https://zrzy.yichang.gov.cn/content-"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "jingzhou-housing-news",
+      "name": "荆州市住房和城市更新局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zjj.jingzhou.gov.cn/xwzx/dtyw/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "http://zjj.jingzhou.gov.cn/xwzx/dtyw/",
+          "https://zjj.jingzhou.gov.cn/xwzx/dtyw/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "ezhou-housing-news",
+      "name": "鄂州市住房和城市更新局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://cjw.ezhou.gov.cn/zxzx/gzdt/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "https://cjw.ezhou.gov.cn/zxzx/gzdt/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "suizhou-urban-news",
+      "name": "随州市自然资源和城乡建设局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zrzyhghj.suizhou.gov.cn/fbjd_18/ywdt/gzdt/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "http://zrzyhghj.suizhou.gov.cn/fbjd_18/ywdt/gzdt/",
+          "https://zrzyhghj.suizhou.gov.cn/fbjd_18/ywdt/gzdt/"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "yichang-housing-news",
+      "name": "宜昌市住房和城市更新局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zj.yichang.gov.cn/",
+        "parseMode": "html",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "http://zj.yichang.gov.cn/content-41740-",
+          "https://zj.yichang.gov.cn/content-41740-"
+        ],
+        "publishedAtUtcOffset": "+08:00",
+        "itemSelector": ".news-view:has(a[href])",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{1,2}[-/]\\d{1,2})",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "nda-digital-society",
+      "name": "国家数据局 · 数字社会",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.nda.gov.cn/sjj/ywpd/szsh/list/index_pc_1.html",
+        "parseMode": "html",
+        "itemSelector": "li:has(> a[href]):not(:has(li))",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "allowUrlPrefixes": [
+          "https://www.nda.gov.cn/sjj/ywpd/szsh/"
+        ],
+        "publishedAtRegex": "(20\\d{2}\\.\\d{2}\\.\\d{2})",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }
