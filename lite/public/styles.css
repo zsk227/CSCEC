@@ -58,7 +58,15 @@ h1 { font-size: clamp(28px, 4.2vw, 46px); line-height: 1.2; letter-spacing: -.04
 .overview, .latest { margin-top: 24px; }
 .latest .feed-heading { margin-bottom: 8px; }
 .latest .section-link { margin-top: 0; }
-.overview.has-preview { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; }
+.overview.has-preview {
+  display: grid;
+  grid-template: "articles opportunities" max-content "latest opportunities" 1fr / minmax(0, 1.6fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+.overview.has-preview #articles { grid-area: articles; }
+.overview.has-preview #opportunity-preview { grid-area: opportunities; }
+.overview.has-preview .latest { grid-area: latest; margin-top: 0; }
 #articles { scroll-margin-top: 12px; }
 .feed-heading,.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .feed-heading h2, #opportunity-heading { font-size: 23px; }
@@ -97,7 +105,7 @@ footer { padding: 24px 0; }
 .source-list .entry + .entry { border-top: 0; }
 @media (max-width: 990px) {
   .hero-main { grid-template-columns: 1fr; }
-  .overview.has-preview { grid-template-columns: 1fr; }
+  .overview.has-preview { grid-template: "articles" "opportunities" "latest" / minmax(0, 1fr); }
 }
 @media (max-width: 680px) {
   aside { position: relative; display: block; width: auto; padding: 11px 16px; border-right: 0; }

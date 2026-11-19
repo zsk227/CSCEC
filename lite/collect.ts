@@ -25,8 +25,13 @@ const sources = input.sources.filter((source) => source.enabled !== false && ["w
 const previous: Feed | undefined = old && existsSync(old) ? JSON.parse(readFileSync(old, "utf8")) : undefined;
 const notice = /招标|采购|成交|中标|竞争性(?:磋商|谈判)|询价|询比/;
 
-function isTender(title: string, source: SourceRow): boolean {
+function isExchangeNotice(url: string): boolean {
+  return /^https?:\/\/(?:www\.)?hbggzyfwpt\.cn\/jyxx\//i.test(url);
+}
+
+function isTender(title: string, source: SourceRow, url: string): boolean {
   return source.id.startsWith("hb-tenders-") ||
+    (source.id === "hubei-exchange-notices" && isExchangeNotice(url)) ||
     (["hb-procurement-intentions", "hubei-exchange-notices"].includes(source.id) && notice.test(title));
 }
 
@@ -45,7 +50,7 @@ function opportunity(excerpt: string): Opportunity | undefined {
 
 function normalize(item: Candidate, source: SourceRow): Entry | null {
   // A match in the title avoids publishing tenders that mention a keyword only in standard clauses.
-  const tender = isTender(item.title, source);
+  const tender = isTender(item.title, source, item.url);
   const matched = topicIds(item.title);
   if (!matched.length || !item.publishedAt) return null;
   const url = normalizeUrl(item.url);
@@ -73,7 +78,7 @@ async function read(source: SourceRow) {
 }
 
 const entries = new Map((previous?.items ?? []).filter((item) => !item.curated && item.date >= earliest)
-  .map((item) => [item.url, { ...item, topics: [...new Set([...item.topics, ...topicIds(item.title)])] }]));
+  .map((item) => [item.url, { ...item, topics: [...new Set([...item.topics, ...topicIds(item.title)])], tender: item.tender || isExchangeNotice(item.url) }]));
 let successful = 0;
 let tenderSources = 0;
 let newsSources = 0;
