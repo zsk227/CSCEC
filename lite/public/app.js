@@ -129,6 +129,8 @@ function toRow(item, { compact = false, relatedCounts } = {}) {
   row.className = "entry";
   const title = document.createElement("a");
   title.href = item.url;
+  title.target = "_blank";
+  title.rel = "noopener noreferrer";
   title.textContent = item.title;
   const metadata = document.createElement("div");
   metadata.className = "metadata";
