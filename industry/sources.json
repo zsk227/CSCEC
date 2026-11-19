@@ -1998,6 +1998,610 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "mohurd-home-local",
+      "name": "住房城乡建设部 · 地方信息",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.mohurd.gov.cn/",
+        "parseMode": "html",
+        "itemSelector": "li.date:has(> a[href])",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://www.mohurd.gov.cn/xinwen/dfxx/art/",
+          "http://www.mohurd.gov.cn/xinwen/dfxx/art/"
+        ],
+        "publishedAtSelector": "span",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "nda-digital-china",
+      "name": "国家数据局 · 数字中国",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.nda.gov.cn/sjj/ywpd/sjzg/list/index_pc_1.html",
+        "parseMode": "html",
+        "itemSelector": "ul.u-list > li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://www.nda.gov.cn/sjj/ywpd/sjzg/",
+          "http://www.nda.gov.cn/sjj/ywpd/sjzg/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "nda-digital-economy",
+      "name": "国家数据局 · 数字经济",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.nda.gov.cn/sjj/ywpd/szjj/list/index_pc_1.html",
+        "parseMode": "html",
+        "itemSelector": "ul.u-list > li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://www.nda.gov.cn/sjj/ywpd/szjj/",
+          "http://www.nda.gov.cn/sjj/ywpd/szjj/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "miit-telecom",
+      "name": "工业和信息化部 · 信息通信发展司",
+      "kind": "web_list",
+      "config": {
+        "url": "https://wap.miit.gov.cn/jgsj/txs/index.html",
+        "parseMode": "html",
+        "itemSelector": ".bt-lists-cover li:has(> a)",
+        "linkSelector": "a[href*='/art/']",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://wap.miit.gov.cn/jgsj/txs/",
+          "http://wap.miit.gov.cn/jgsj/txs/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "caac-central-south",
+      "name": "民航中南地区管理局 · 行业动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zn.caac.gov.cn/ZN_XXGK/ZN_HYDT/",
+        "parseMode": "html",
+        "itemSelector": ".n_list li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zn.caac.gov.cn/ZN_XXGK/ZN_HYDT/",
+          "http://zn.caac.gov.cn/ZN_XXGK/ZN_HYDT/"
+        ],
+        "publishedAtSelector": ".n_date",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-housing-media",
+      "name": "湖北省住建厅 · 媒体聚焦",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjt.hubei.gov.cn/bmdt/dtyw/mtjj/",
+        "parseMode": "html",
+        "itemSelector": "ul.list-b > li:has(h4 a)",
+        "linkSelector": "h4 a",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zjt.hubei.gov.cn/bmdt/dtyw/mtjj/",
+          "http://zjt.hubei.gov.cn/bmdt/dtyw/mtjj/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-housing-work",
+      "name": "湖北省住建厅 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjt.hubei.gov.cn/bmdt/dtyw/gzdt/",
+        "parseMode": "html",
+        "itemSelector": "ul.list-b > li:has(h4 a)",
+        "linkSelector": "h4 a",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zjt.hubei.gov.cn/bmdt/dtyw/gzdt/",
+          "http://zjt.hubei.gov.cn/bmdt/dtyw/gzdt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "shanghai-housing-work",
+      "name": "上海市住建委 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjw.sh.gov.cn/gzdt/index.html",
+        "parseMode": "html",
+        "itemSelector": "ul.list-date > li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zjw.sh.gov.cn/gzdt/",
+          "http://zjw.sh.gov.cn/gzdt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "cscec-training",
+      "name": "中建集团管理学院 · 培训动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://mnts.cscec.com/xwzx/pxdt/",
+        "parseMode": "html",
+        "itemSelector": "ul.cnewlist > li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://mnts.cscec.com/xwzx/pxdt/",
+          "http://mnts.cscec.com/xwzx/pxdt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "huangshi-renewal",
+      "name": "黄石市住更局 · 城市更新工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjj.huangshi.gov.cn/ztlm/csgx/gzdt/",
+        "parseMode": "html",
+        "itemSelector": "li:has(> a):has(> span):not(:has(li))",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zjj.huangshi.gov.cn/ztlm/csgx/gzdt/",
+          "http://zjj.huangshi.gov.cn/ztlm/csgx/gzdt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "huanggang-housing-dynamics",
+      "name": "黄冈市住更局 · 住新要闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjw.hg.gov.cn/zwxw/zjyw/index.html",
+        "parseMode": "html",
+        "itemSelector": "ul.doc_list > li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zjw.hg.gov.cn/zwxw/zjyw/",
+          "http://zjw.hg.gov.cn/zwxw/zjyw/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "qianjiang-housing",
+      "name": "潜江市住更局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.hbqj.gov.cn/szfhcxjsj/xwzx/gzdt/",
+        "parseMode": "html",
+        "itemSelector": "ul.list_t_child > li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://www.hbqj.gov.cn/szfhcxjsj/xwzx/gzdt/",
+          "http://www.hbqj.gov.cn/szfhcxjsj/xwzx/gzdt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "qianjiang-data",
+      "name": "潜江市政务服务和大数据管理局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.hbqj.gov.cn/szwfwhdsjglj/xwzx/gzdt/",
+        "parseMode": "html",
+        "itemSelector": "ul.list_t_child > li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://www.hbqj.gov.cn/szwfwhdsjglj/xwzx/gzdt/",
+          "http://www.hbqj.gov.cn/szwfwhdsjglj/xwzx/gzdt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "tianmen-housing-https",
+      "name": "天门市住更局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.tianmen.gov.cn/zwgk/bmhxzxxgkml/bm/szfhcxjsj/zfxxgk/fdzdgknr/gzdt/",
+        "parseMode": "html",
+        "itemSelector": "ul.info-list > li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "http://www.tianmen.gov.cn/zwgk/bmhxzxxgkml/bm/szfhcxjsj/",
+          "https://www.tianmen.gov.cn/zwgk/bmhxzxxgkml/bm/szfhcxjsj/"
+        ],
+        "publishedAtSelector": "a span",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "nea-policy-home",
+      "name": "国家能源局 · 首页发布",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.nea.gov.cn/",
+        "parseMode": "html",
+        "itemSelector": "li:has(> a[href$='/c.html']):has(> span):not(:has(li))",
+        "linkSelector": "a[href$='/c.html']",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://www.nea.gov.cn/",
+          "http://www.nea.gov.cn/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "ezhou-water-work",
+      "name": "鄂州市水利和湖泊局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://slhp.ezhou.gov.cn/zxzx/gzdt/",
+        "parseMode": "html",
+        "itemSelector": "li:has(> a):has(> span):not(:has(li))",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://slhp.ezhou.gov.cn/zxzx/gzdt/",
+          "http://slhp.ezhou.gov.cn/zxzx/gzdt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "ezhou-water-policy",
+      "name": "鄂州市水利和湖泊局 · 政策文件",
+      "kind": "web_list",
+      "config": {
+        "url": "https://slhp.ezhou.gov.cn/zwgk/zc/qt/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://slhp.ezhou.gov.cn/zwgk/zc/qt/",
+          "http://slhp.ezhou.gov.cn/zwgk/zc/qt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "huangshi-water-work",
+      "name": "黄石市水利和湖泊局 · 水利要闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://slscj.huangshi.gov.cn/slscxx/ywrb/",
+        "parseMode": "html",
+        "itemSelector": "li:has(> a):has(> span):not(:has(li))",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://slscj.huangshi.gov.cn/slscxx/ywrb/",
+          "http://slscj.huangshi.gov.cn/slscxx/ywrb/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "beijing-smart-notices",
+      "name": "北京市住建委 · 智能建造征集与发布",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjw.beijing.gov.cn/bjjs/kjcxytg/znjz/zjtz76/index.shtml",
+        "parseMode": "html",
+        "itemSelector": "ul.ej_ulList > li:has(> a)",
+        "linkSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zjw.beijing.gov.cn/bjjs/kjcxytg/znjz/zjtz76/",
+          "http://zjw.beijing.gov.cn/bjjs/kjcxytg/znjz/zjtz76/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "shenzhen-housing-policy",
+      "name": "深圳市住建局 · 政策法规",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjj.sz.gov.cn/xxgk/zcfgs/zcfg/index.html",
+        "parseMode": "html",
+        "itemSelector": "tr:has(td.t2 a)",
+        "linkSelector": "td.t2 a",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zjj.sz.gov.cn/",
+          "http://zjj.sz.gov.cn/"
+        ],
+        "publishedAtSelector": "td.t3",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }
