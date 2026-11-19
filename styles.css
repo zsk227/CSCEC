@@ -74,13 +74,24 @@ button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 8px; b
 .tag { color: var(--accent); }
 #more { display: block; margin: 13px auto 0; }
 footer { padding: 24px 0; }
+.source-map { max-width: 1180px; }
+.source-intro { padding: 22px 0 12px; }
+.source-intro p { margin-top: 9px; color: var(--muted); }
+.source-jumps { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 14px 0 22px; color: var(--accent); }
+.source-group { margin: 0 0 22px; scroll-margin-top: 12px; }
+.source-group h2 { margin-bottom: 8px; font-size: 21px; }
+.source-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--line); }
+.source-list li { background: var(--surface); }
+.source-list .entry a { color: var(--accent); }
+.source-list .entry:only-child { grid-column: 1 / -1; }
+.source-list .entry + .entry { border-top: 0; }
 @media (max-width: 990px) {
   .hero-main { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
   aside { position: relative; display: block; width: auto; padding: 11px 16px; border-right: 0; }
   .brand { margin-left: 0; font-size: 17px; }
-  aside nav { position: fixed; display: grid; grid-template-columns: repeat(3, 1fr); inset: auto 0 0; z-index: 1; margin: 0; padding: 5px 5px calc(5px + env(safe-area-inset-bottom)); background: var(--rail); border-top: 1px solid var(--line); text-align: center; }
+  aside nav { position: fixed; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); inset: auto 0 0; z-index: 1; margin: 0; padding: 5px 5px calc(5px + env(safe-area-inset-bottom)); background: var(--rail); border-top: 1px solid var(--line); text-align: center; }
   aside nav a { padding: 8px 5px; font-size: 13px; }
   .repo { display: none; }
   main { margin: 0; padding: 0 16px 55px; }
@@ -89,6 +100,7 @@ footer { padding: 24px 0; }
   .references ul { grid-template-columns: 1fr; }
   .feed-heading h2 { font-size: 21px; }
   .entry { padding: 11px 13px; }
+  .source-list { grid-template-columns: 1fr; }
 }
 @media (prefers-color-scheme: dark) {
   :root { color-scheme: dark; --canvas: #101b1e; --surface: #172629; --rail: #142124; --ink: #e6efed; --muted: #aabfbc; --line: #385052; --active: #284649; --accent: #a0dcd0; }
