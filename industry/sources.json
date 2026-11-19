@@ -1848,6 +1848,156 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "wuhan-renewal-updates",
+      "name": "武汉市住更局 · 城市更新工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zgj.wuhan.gov.cn/ztzl/wgshcsgx/gzdt_csgx/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.]\\d{1,2}[-/.]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zgj.wuhan.gov.cn/ztzl/wgshcsgx/gzdt_csgx/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wuhan-housing-dynamics",
+      "name": "武汉市住更局 · 住更动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zgj.wuhan.gov.cn/zwdt/jdxw/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.]\\d{1,2}[-/.]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zgj.wuhan.gov.cn/zwdt/jdxw/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-housing-cities",
+      "name": "湖北省住建厅 · 市州扫描",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjt.hubei.gov.cn/bmdt/dtyw/szsm/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.]\\d{1,2}[-/.]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://zjt.hubei.gov.cn/bmdt/dtyw/szsm/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "ndrc-infrastructure-analysis",
+      "name": "国家发展改革委 · 委属单位话发改",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.ndrc.gov.cn/wsdwhfz/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.]\\d{1,2}[-/.]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://www.ndrc.gov.cn/wsdwhfz/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "ezhou-finance-news",
+      "name": "鄂州市财政局 · 财政信息",
+      "kind": "web_list",
+      "config": {
+        "url": "https://czj.ezhou.gov.cn/zxzx/czxx/",
+        "parseMode": "html",
+        "itemSelector": "li:has(a[href]):not(:has(li))",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtRegex": "(20\\d{2}[-/.]\\d{1,2}[-/.]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://czj.ezhou.gov.cn/zxzx/czxx/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="浏览六张网、数字建造、智慧校园、智慧园区、数字住建和低空经济的行业动态，跟踪湖北标讯。">
-  <title>行业资讯 · 行业动态与湖北标讯</title>
+  <meta name="description" content="关注数字建造、数字住建、城市更新和六张网，查看今日精选与湖北数字化商机。">
+  <title>行业资讯 · 今日精选与湖北数字化商机</title>
   <link rel="stylesheet" href="/styles.css">
   <script type="module" src="/app.js"></script>
 </head>
@@ -13,9 +13,10 @@
   <aside>
     <a class="brand" href="/">行业资讯</a>
     <nav aria-label="主导航">
-      <a data-nav="all" href="/#articles">行业动态</a>
-      <a data-nav="tenders" href="/?view=tenders#articles">湖北标讯</a>
-      <a href="/#topics">专题</a>
+      <a data-nav="featured" href="/" aria-current="page">精选</a>
+      <a data-nav="all" href="/?view=all#articles">全部动态</a>
+      <a data-nav="tenders" href="/?view=tenders#articles">湖北数字化商机</a>
+      <a data-nav="topics" href="/#topics">专题</a>
       <a href="/sources.html">信源地图</a>
     </nav>
     <a class="repo" href="https://github.com/zsk227/CSCEC">GitHub 开源 ↗</a>
@@ -25,48 +26,68 @@
       <div class="hero-main">
         <div>
           <h1>行业资讯</h1>
-          <p>看行业政策、项目进展和工程实践，跟踪湖北招采机会。</p>
+          <p>聚焦智慧住建与智慧城市，跟踪行业政策、项目进展和湖北招采机会。</p>
           <div class="hero-actions">
-            <a class="action primary" href="/#articles">行业动态</a>
-            <a class="action" href="/?view=tenders#articles">湖北标讯</a>
+            <a class="action primary" href="/#articles">今日精选</a>
+            <a class="action" href="/?view=tenders#articles">湖北数字化商机</a>
           </div>
         </div>
-        <ul id="topics" class="topics" aria-label="关注方向">
-          <li><a href="/?topic=six-networks#articles">六张网 <span aria-hidden="true">↗</span></a></li>
+        <ul class="topics" aria-label="核心方向">
           <li><a href="/?topic=digital-construction#articles">数字建造 <span aria-hidden="true">↗</span></a></li>
-          <li><a href="/?topic=smart-campus#articles">智慧校园 <span aria-hidden="true">↗</span></a></li>
-          <li><a href="/?topic=smart-park#articles">智慧园区 <span aria-hidden="true">↗</span></a></li>
           <li><a href="/?topic=digital-housing#articles">数字住建 <span aria-hidden="true">↗</span></a></li>
-          <li><a href="/?topic=low-altitude#articles">低空经济 <span aria-hidden="true">↗</span></a></li>
+          <li><a href="/?topic=urban-renewal#articles">城市更新 <span aria-hidden="true">↗</span></a></li>
+          <li><a href="/?topic=six-networks#articles">六张网 <span aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
-      <section class="references" aria-labelledby="reference-heading">
-        <h2 id="reference-heading">政策与项目资料</h2>
-        <ul>
-          <li><a href="https://www.mohurd.gov.cn/xinwen/jsyw/art/2025/art_d78f4db2f9e646fb94c623e506e16051.html">全国智能建造工作会</a> <span>住房城乡建设部</span></li>
-          <li><a href="https://www.ndrc.gov.cn/xwdt/wszb/7yxwfbh/">六张网规划建设解读</a> <span>国家发展改革委</span></li>
-          <li><a href="https://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260908_6009802.shtml">2026 年湖北绿色智能建造试点项目名单</a> <span>湖北省住建厅</span></li>
-          <li><a href="https://www.ndrc.gov.cn/xwdt/dt/dfdt/202609/t20260922_1407755.html">湖北六张网重大项目投融资对接</a> <span>国家发展改革委</span></li>
-        </ul>
-      </section>
+      <nav id="topics" class="topic-links" aria-label="其他专题">
+        <span>其他专题</span>
+        <a href="/?topic=smart-campus#articles">智慧校园</a>
+        <a href="/?topic=smart-park#articles">智慧园区</a>
+        <a href="/?topic=low-altitude#articles">低空经济</a>
+      </nav>
     </header>
-    <section id="articles" aria-labelledby="feed-heading">
-      <div class="feed-heading">
-        <h2 id="feed-heading">行业动态</h2>
-        <time id="updated" hidden></time>
-      </div>
-      <div class="toolbar">
-        <nav id="filters" aria-label="筛选专题"></nav>
-        <form id="search" role="search" action="/#articles">
-          <label class="sr-only" for="query">搜索标题或信源</label>
-          <input id="query" name="q" type="search" maxlength="100" placeholder="搜索标题或信源">
-          <button type="submit">搜索</button>
-        </form>
-      </div>
-      <p class="feed-status" id="status" role="status">正在读取公开资讯…</p>
-      <ol id="feed" class="feed" hidden></ol>
-      <button id="more" type="button" hidden>查看更多</button>
-      <noscript>请启用 JavaScript 浏览资讯列表。</noscript>
+    <div id="content" class="overview">
+      <section id="articles" aria-labelledby="feed-heading">
+        <div class="feed-heading">
+          <h2 id="feed-heading">今日精选</h2>
+          <time id="updated" hidden></time>
+        </div>
+        <div id="feed-tools" class="toolbar" hidden>
+          <nav id="filters" aria-label="筛选专题"></nav>
+          <form id="search" role="search" action="/#articles">
+            <label class="sr-only" for="query">搜索标题或信源</label>
+            <input id="query" name="q" type="search" maxlength="100" placeholder="搜索标题或信源">
+            <button type="submit">搜索</button>
+          </form>
+        </div>
+        <nav id="opportunity-filters" class="stage-filters" aria-label="筛选商机阶段" hidden></nav>
+        <p class="feed-status" id="status" role="status">正在读取公开资讯…</p>
+        <ol id="feed" class="feed" hidden></ol>
+        <button id="more" type="button" hidden>查看更多</button>
+        <noscript>请启用 JavaScript 浏览资讯列表。</noscript>
+      </section>
+      <section id="opportunity-preview" aria-labelledby="opportunity-heading">
+        <h2 id="opportunity-heading">湖北数字化商机</h2>
+        <p class="feed-status" id="opportunity-status">正在读取公开商机…</p>
+        <ol id="opportunity-feed" class="feed" hidden></ol>
+        <a class="section-link" href="/?view=tenders#articles">查看全部商机 ↗</a>
+      </section>
+      <section id="latest" class="latest" aria-labelledby="latest-heading" hidden>
+        <div class="feed-heading">
+          <h2 id="latest-heading">最新动态</h2>
+          <a class="section-link" href="/?view=all#articles">查看全部动态 ↗</a>
+        </div>
+        <ol id="latest-feed" class="feed"></ol>
+      </section>
+    </div>
+    <section class="references" aria-labelledby="reference-heading">
+      <h2 id="reference-heading">政策与项目资料</h2>
+      <ul>
+        <li><a href="https://www.mohurd.gov.cn/xinwen/jsyw/art/2025/art_d78f4db2f9e646fb94c623e506e16051.html">全国智能建造工作会</a> <span>住房城乡建设部</span></li>
+        <li><a href="https://www.ndrc.gov.cn/xwdt/wszb/7yxwfbh/">六张网规划建设解读</a> <span>国家发展改革委</span></li>
+        <li><a href="https://zjt.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202609/t20260908_6009802.shtml">2026 年湖北绿色智能建造试点项目名单</a> <span>湖北省住建厅</span></li>
+        <li><a href="https://www.ndrc.gov.cn/xwdt/dt/dfdt/202609/t20260922_1407755.html">湖北六张网重大项目投融资对接</a> <span>国家发展改革委</span></li>
+      </ul>
     </section>
     <footer>本站收录公开标题和原文链接。公告、采购要求和截止时间以原文为准。</footer>
   </main>
