@@ -6,7 +6,7 @@ const topic = topics.find(({ id }) => id === params.get("topic"));
 const query = (params.get("q") ?? "").trim().slice(0, 100);
 const featuredView = !tenderView && params.get("view") !== "all" && !topic && !query;
 const relatedView = params.get("related") === "1" && tenderView && Boolean(query);
-const view = tenderView ? "湖北数字化商机" : featuredView ? "今日精选" : "全部动态";
+const view = tenderView ? "项目标讯" : featuredView ? "今日精选" : "全部动态";
 const stageOptions = [
   { id: "", label: "全部阶段" },
   { id: "planning", label: "意向与计划" },
