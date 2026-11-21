@@ -7,6 +7,7 @@ import { fetchJsonList } from "../packages/backend/src/sources/json-list.ts";
 import { fetchDetail, fetchWebList } from "../packages/backend/src/sources/web-list.ts";
 import { normalizeUrl } from "../packages/backend/src/lib/url.ts";
 import type { Candidate, SourceRow } from "../packages/backend/src/sources/types.ts";
+import { articleUrl } from "./links.ts";
 import { compactTitle, topics } from "./topics.mjs";
 
 type Opportunity = { buyer?: string; location?: string; amount?: string; deadline?: string };
@@ -53,8 +54,8 @@ function normalize(item: Candidate, source: SourceRow): Entry | null {
   const tender = isTender(item.title, source, item.url);
   const matched = topicIds(item.title);
   if (!matched.length || !item.publishedAt) return null;
-  const url = normalizeUrl(item.url);
-  if (!url || !/^https?:\/\//.test(url) || new URL(url).username || new URL(url).password) return null;
+  const url = articleUrl(item.url);
+  if (!url) return null;
   const date = beijingDate(item.publishedAt);
   if (date < earliest || date > currentDate) return null;
   const detail = tender && item.excerpt ? opportunity(item.excerpt) : undefined;
@@ -77,8 +78,15 @@ async function read(source: SourceRow) {
   return { found: items.length, items: items.map((item) => normalize(item, source)).filter((item): item is Entry => item !== null) };
 }
 
-const entries = new Map((previous?.items ?? []).filter((item) => !item.curated && item.date >= earliest)
-  .map((item) => [item.url, { ...item, topics: [...new Set([...item.topics, ...topicIds(item.title)])], tender: item.tender || isExchangeNotice(item.url) }]));
+// Keep canonical identity keys separate from the original links readers open.
+const entries = new Map<string, Entry>();
+for (const item of previous?.items ?? []) {
+  if (item.curated || item.date < earliest) continue;
+  const url = articleUrl(item.url, { legacy: true });
+  if (!url) continue;
+  const topics = [...new Set([...item.topics, ...topicIds(item.title)])];
+  entries.set(normalizeUrl(url)!, { ...item, url, topics, tender: item.tender || isExchangeNotice(url) });
+}
 let successful = 0;
 let tenderSources = 0;
 let newsSources = 0;
@@ -91,9 +99,10 @@ for (const source of sources) {
     if (source.kind === "json_list") tenderSources++;
     else newsSources++;
     for (const item of result.items) {
-      const existing = entries.get(item.url);
+      const key = normalizeUrl(item.url)!;
+      const existing = entries.get(key);
       const details = item.opportunity ?? existing?.opportunity;
-      entries.set(item.url, { ...item, tender: item.tender || existing?.tender === true, ...(details && { opportunity: details }) });
+      entries.set(key, { ...item, tender: item.tender || existing?.tender === true, ...(details && { opportunity: details }) });
     }
     console.log(`${source.id}: ${result.found} listings, ${result.items.length} matched`);
   } catch (error) {
@@ -110,8 +119,9 @@ for (const { sourceId, title, url, date, topics: selectedTopics } of wechatLinks
       !/^\d{4}-\d{2}-\d{2}$/.test(date) || !selectedTopics.every((id) => topics.some((topic) => topic.id === id))) {
     throw new Error(`Invalid curated WeChat link for ${sourceId}`);
   }
-  if (date < earliest || date > currentDate || entries.has(url)) continue;
-  entries.set(url, { title, url, date, source: `${source.name} · 微信公众号`, topics: [...new Set([...selectedTopics, ...topicIds(title)])], tender: false, curated: true });
+  const key = normalizeUrl(url)!;
+  if (date < earliest || date > currentDate || entries.has(key)) continue;
+  entries.set(key, { title, url, date, source: `${source.name} · 微信公众号`, topics: [...new Set([...selectedTopics, ...topicIds(title)])], tender: false, curated: true });
 }
 
 const items = [...entries.values()].sort((a, b) => b.date.localeCompare(a.date) || a.url.localeCompare(b.url));
