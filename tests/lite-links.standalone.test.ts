@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { articleKey, articleUrl } from "../lite/links.ts";
+import { articleUrl } from "../lite/links.ts";
 
 const official = "https://www.nea.gov.cn/20261120/60a2897046794cb0a0f0ef3e36e538f1/c.html";
 const archived = official.replace("www.", "");
@@ -23,10 +23,4 @@ test("public article links require an absolute HTTP address without credentials"
   for (const invalid of ["/article", "javascript:void(0)", "https://user:secret@example.com/"]) {
     assert.equal(articleUrl(invalid), null);
   }
-});
-
-test("notice routes use their fragment for identity while ordinary in-page anchors do not", () => {
-  const portal = "https://b2b.10086.cn/";
-  assert.notEqual(articleKey(portal + "#/noticeDetail?publishId=1"), articleKey(portal + "#/noticeDetail?publishId=2"));
-  assert.equal(articleKey(official + "#summary"), articleKey(official));
 });

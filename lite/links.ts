@@ -1,5 +1,3 @@
-import { identityKeyForUrl } from "../packages/backend/src/lib/url.ts";
-
 // Verified official hosts whose archived URLs stopped working when www was removed.
 const legacyWwwHosts = new Set([
   "cscec.com", "digitalchina.gov.cn", "hbqj.gov.cn", "nda.gov.cn",
@@ -16,8 +14,4 @@ export function articleUrl(input: string, { legacy = false } = {}): string | nul
   if ((url.protocol !== "https:" && url.protocol !== "http:") || url.username || url.password) return null;
   if (legacy && legacyWwwHosts.has(url.hostname)) url.hostname = `www.${url.hostname}`;
   return url.href;
-}
-
-export function articleKey(url: string): string {
-  return identityKeyForUrl(url, { keepFragment: new URL(url).hash.startsWith("#/") })!;
 }

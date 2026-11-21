@@ -3268,8 +3268,8 @@
         "url": "https://www.xiantao.gov.cn/bmxxgk/szjw/zfxxgk/fdzdgknr/qtzdgknr_37950/gsgg/",
         "itemSelector": "ul.list_t > li:has(a[href])",
         "linkSelector": "a[href]",
-        "titleSelector": "a[href]",
-        "publishedAtSelector": "span, time",
+        "titleSelector": ".list_text",
+        "publishedAtSelector": ".date",
         "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
         "allowUrlPrefixes": [
           "https://www.xiantao.gov.cn/bmxxgk/szjw/zfxxgk/fdzdgknr/qtzdgknr_37950/gsgg/"
@@ -3299,8 +3299,8 @@
         "url": "https://www.xiantao.gov.cn/bmxxgk/zwfw/zfxxgk/fdzdgknr/ghzj/",
         "itemSelector": "ul.list_t > li:has(a[href])",
         "linkSelector": "a[href]",
-        "titleSelector": "a[href]",
-        "publishedAtSelector": "span, time",
+        "titleSelector": ".list_text",
+        "publishedAtSelector": ".date",
         "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
         "allowUrlPrefixes": [
           "https://www.xiantao.gov.cn/bmxxgk/zwfw/zfxxgk/fdzdgknr/ghzj/"
@@ -3318,120 +3318,6 @@
       "enabled": true,
       "tags": [
         "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "hb-tenders-mobile",
-      "name": "中国移动 · 湖北招标采购公告",
-      "kind": "json_list",
-      "config": {
-        "url": "https://b2b.10086.cn/api-b2b/api-sync-es/white_list_api/b2b/publish/queryList",
-        "method": "POST",
-        "bodyJson": {
-          "name": "",
-          "publishType": "PROCUREMENT",
-          "purchaseType": "",
-          "companyType": "HB",
-          "size": 20,
-          "current": 1,
-          "sfactApplColumn5": "PC"
-        },
-        "itemsPath": "data.content",
-        "titlePaths": [
-          "name"
-        ],
-        "publishedAtPath": "publishDate",
-        "publishedAtUtcOffset": "+08:00",
-        "externalIdPath": "id",
-        "urlTemplate": "https://b2b.10086.cn/#/noticeDetail?publishId={id}&publishUuid={uuid}&publishType={publishType}&publishOneType={publishOneType}",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "enabled": true,
-      "tags": [
-        "官方",
-        "招采"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "hb-tenders-telecom-bidding",
-      "name": "中国电信 · 湖北招标公告",
-      "kind": "json_list",
-      "config": {
-        "url": "https://caigou.chinatelecom.com.cn/portal/base/announcementJoin/queryListNew",
-        "method": "POST",
-        "bodyJson": {
-          "pageNum": 1,
-          "pageSize": 10,
-          "type": "e2no",
-          "provinceCode": "06",
-          "noticeSummary": ""
-        },
-        "itemsPath": "data.pageInfo.list",
-        "titlePaths": [
-          "docTitle"
-        ],
-        "publishedAtPath": "createDate",
-        "publishedAtUtcOffset": "+08:00",
-        "externalIdPath": "id",
-        "urlTemplate": "https://caigou.chinatelecom.com.cn/DeclareDetails?id={id}&type=1&docTypeCode={docTypeCode}&securityViewCode={securityViewCode}",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "enabled": true,
-      "tags": [
-        "官方",
-        "招采"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "hb-tenders-telecom",
-      "name": "中国电信 · 湖北采购计划",
-      "kind": "json_list",
-      "config": {
-        "url": "https://caigou.chinatelecom.com.cn/portal/base/announcementJoin/queryListNew",
-        "method": "POST",
-        "bodyJson": {
-          "pageNum": 1,
-          "pageSize": 10,
-          "type": "cgjh10",
-          "title": "",
-          "provinceCode": "06",
-          "noticeSummary": ""
-        },
-        "itemsPath": "data.pageInfo.list",
-        "titlePaths": [
-          "docTitle"
-        ],
-        "publishedAtPath": "createDate",
-        "publishedAtUtcOffset": "+08:00",
-        "externalIdPath": "id",
-        "urlTemplate": "https://caigou.chinatelecom.com.cn/DeclareDetails?id={id}&type=23&docTypeCode={docTypeCode}&securityViewCode={securityViewCode}",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "enabled": true,
-      "tags": [
-        "官方",
-        "招采"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
