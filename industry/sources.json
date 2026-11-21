@@ -2667,6 +2667,660 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "shiyan-housing-notices",
+      "name": "十堰市住更局 · 通知公告",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zxj.shiyan.gov.cn/xwzx/tzgg/",
+        "itemSelector": "ul.ul_text > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zxj.shiyan.gov.cn/xwzx/tzgg/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "shiyan-housing-construction",
+      "name": "十堰市住更局 · 城建动态",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zxj.shiyan.gov.cn/xwzx/cjdt/",
+        "itemSelector": "ul.ul_text > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zxj.shiyan.gov.cn/xwzx/cjdt/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "shiyan-housing-districts",
+      "name": "十堰市住更局 · 区县扫描",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zxj.shiyan.gov.cn/xwzx/qxsm/",
+        "itemSelector": "ul.ul_text > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zxj.shiyan.gov.cn/xwzx/qxsm/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "shiyan-housing-city",
+      "name": "十堰市住更局 · 城市建设",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zxj.shiyan.gov.cn/xwzx/csjs/",
+        "itemSelector": "ul.ul_text > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zxj.shiyan.gov.cn/xwzx/csjs/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "xianning-housing-news",
+      "name": "咸宁市住更局 · 建设动态",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zjj.xianning.gov.cn/xwdt/jsdt/",
+        "itemSelector": "ul.newslist > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zjj.xianning.gov.cn/xwdt/jsdt/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "xianning-housing-notices",
+      "name": "咸宁市住更局 · 通知公告",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zjj.xianning.gov.cn/xwdt/tzgg/",
+        "itemSelector": "ul.newslist > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zjj.xianning.gov.cn/xwdt/tzgg/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "xiaogan-housing-city",
+      "name": "孝感市住更局 · 城市建设",
+      "kind": "web_list",
+      "config": {
+        "url": "https://xgscxjswyh.xiaogan.gov.cn/xyxx/csjs/",
+        "itemSelector": "#bodyTab21 li:has(a.a-link[href])",
+        "linkSelector": "a.a-link[href]",
+        "titleSelector": "a.a-link[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "https://xgscxjswyh.xiaogan.gov.cn/xyxx/csjs/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "xiaogan-housing-news",
+      "name": "孝感市住更局 · 政务动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://xgscxjswyh.xiaogan.gov.cn/zwdt/",
+        "itemSelector": "#bodyTab21 li:has(a.a-link[href])",
+        "linkSelector": "a.a-link[href]",
+        "titleSelector": "a.a-link[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "https://xgscxjswyh.xiaogan.gov.cn/zwdt/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "xiaogan-housing-districts",
+      "name": "孝感市住更局 · 县市动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://xgscxjswyh.xiaogan.gov.cn/xyxx/xsdt/",
+        "itemSelector": "#bodyTab21 li:has(a.a-link[href])",
+        "linkSelector": "a.a-link[href]",
+        "titleSelector": "a.a-link[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "https://xgscxjswyh.xiaogan.gov.cn/xyxx/xsdt/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "enshi-housing-news",
+      "name": "恩施州住更局 · 建设资讯",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zjw.enshi.gov.cn/jszx/",
+        "itemSelector": "#list_article > ul > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zjw.enshi.gov.cn/jszx/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "enshi-housing-counties",
+      "name": "恩施州住更局 · 县市联播",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zjw.enshi.gov.cn/xslb/",
+        "itemSelector": "#list_article > ul > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zjw.enshi.gov.cn/xslb/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "enshi-housing-notices",
+      "name": "恩施州住更局 · 公示公告",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zjw.enshi.gov.cn/gsgg/",
+        "itemSelector": "#list_article > ul > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zjw.enshi.gov.cn/gsgg/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "shennongjia-housing-news",
+      "name": "神农架林区住建局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zjj.snj.gov.cn/gzdt/",
+        "itemSelector": "ul.list-1 > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zjj.snj.gov.cn/gzdt/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "shennongjia-housing-notices",
+      "name": "神农架林区住建局 · 通知公告",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zjj.snj.gov.cn/gsgg/",
+        "itemSelector": "ul.list-1 > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zjj.snj.gov.cn/gsgg/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wuhan-yangtze-notices",
+      "name": "武汉长江新区 · 通知公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.whcjxq.gov.cn/tzgg/",
+        "itemSelector": ".list > ul > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "https://www.whcjxq.gov.cn/tzgg/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mohurdic-digital-housing",
+      "name": "住建部信息中心 · 数字住建",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.mohurdic.org.cn/",
+        "itemSelector": ".info-con ul.common-tab-item > li:has(a[href*=\"/szzj/\"][href*=\"/art/\"])",
+        "linkSelector": "a[href*=\"/szzj/\"][href*=\"/art/\"]",
+        "titleSelector": "a[href*=\"/szzj/\"][href*=\"/art/\"]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "https://www.mohurdic.org.cn/szzj/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "camet-industry",
+      "name": "中国城市轨道交通协会 · 协会发布与行业动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.camet.org.cn/",
+        "itemSelector": "#tab_sy_xydt ul.in-u-box > li:has(a[href]), #tab_sy_xhfb ul.in-u-box > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "https://www.camet.org.cn/sy/",
+          "https://www.camet.org.cn/rcpy/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "协会"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "jingmen-housing-system",
+      "name": "荆门市住更局 · 系统动态",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zfhcxjsj.jingmen.gov.cn/col/col4237/index.html",
+        "itemSelector": "li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zfhcxjsj.jingmen.gov.cn/art/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "adapter": "jpage_records"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "jingmen-housing-work",
+      "name": "荆门市住更局 · 工作动态",
+      "kind": "web_list",
+      "config": {
+        "url": "http://zfhcxjsj.jingmen.gov.cn/col/col4032/index.html",
+        "itemSelector": "li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span, time",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "http://zfhcxjsj.jingmen.gov.cn/art/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "adapter": "jpage_records"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "xiantao-housing-notices",
+      "name": "仙桃市住更局 · 公示公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.xiantao.gov.cn/bmxxgk/szjw/zfxxgk/fdzdgknr/qtzdgknr_37950/gsgg/",
+        "itemSelector": "ul.list_t > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": ".list_text",
+        "publishedAtSelector": ".date",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "https://www.xiantao.gov.cn/bmxxgk/szjw/zfxxgk/fdzdgknr/qtzdgknr_37950/gsgg/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "xiantao-data-planning",
+      "name": "仙桃市政务服务和大数据管理局 · 规划信息",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.xiantao.gov.cn/bmxxgk/zwfw/zfxxgk/fdzdgknr/ghzj/",
+        "itemSelector": "ul.list_t > li:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": ".list_text",
+        "publishedAtSelector": ".date",
+        "publishedAtRegex": "(20\\d{2}[-年/]\\s*\\d{1,2}[-月/]\\s*\\d{1,2}日?)",
+        "allowUrlPrefixes": [
+          "https://www.xiantao.gov.cn/bmxxgk/zwfw/zfxxgk/fdzdgknr/ghzj/"
+        ],
+        "parseMode": "html",
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }

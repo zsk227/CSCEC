@@ -147,7 +147,11 @@ export function fromMarkdown(md: string, base: string, source: SourceRow): Candi
 
 export function fromHtml(html: string, base: string, source: SourceRow): Candidate[] {
   const c = source.config;
-  const $ = cheerio.load(html);
+  // JPage lists embed their public rows in XML records instead of rendered markup.
+  const markup = c.adapter === "jpage_records"
+    ? [...html.matchAll(/<record>\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*<\/record>/gi)].map(([, row]) => row).join("\n")
+    : html;
+  const $ = cheerio.load(markup);
   const out: Candidate[] = [];
   const seen = new Set<string>();
   const listing = String(c.url ?? base).replace(JINA_PREFIX, "");
