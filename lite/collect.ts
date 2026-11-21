@@ -5,9 +5,8 @@ import { beijingDate, beijingTime } from "@aihot/contracts/time";
 import { assertSupportedConfig } from "../packages/backend/src/sources/config-keys.ts";
 import { fetchJsonList } from "../packages/backend/src/sources/json-list.ts";
 import { fetchDetail, fetchWebList } from "../packages/backend/src/sources/web-list.ts";
-import { normalizeUrl } from "../packages/backend/src/lib/url.ts";
 import type { Candidate, SourceRow } from "../packages/backend/src/sources/types.ts";
-import { articleUrl } from "./links.ts";
+import { articleKey, articleUrl } from "./links.ts";
 import { compactTitle, topics } from "./topics.mjs";
 
 type Opportunity = { buyer?: string; location?: string; amount?: string; deadline?: string };
@@ -85,7 +84,7 @@ for (const item of previous?.items ?? []) {
   const url = articleUrl(item.url, { legacy: true });
   if (!url) continue;
   const topics = [...new Set([...item.topics, ...topicIds(item.title)])];
-  entries.set(normalizeUrl(url)!, { ...item, url, topics, tender: item.tender || isExchangeNotice(url) });
+  entries.set(articleKey(url), { ...item, url, topics, tender: item.tender || isExchangeNotice(url) });
 }
 let successful = 0;
 let tenderSources = 0;
@@ -99,7 +98,7 @@ for (const source of sources) {
     if (source.kind === "json_list") tenderSources++;
     else newsSources++;
     for (const item of result.items) {
-      const key = normalizeUrl(item.url)!;
+      const key = articleKey(item.url);
       const existing = entries.get(key);
       const details = item.opportunity ?? existing?.opportunity;
       entries.set(key, { ...item, tender: item.tender || existing?.tender === true, ...(details && { opportunity: details }) });
@@ -119,7 +118,7 @@ for (const { sourceId, title, url, date, topics: selectedTopics } of wechatLinks
       !/^\d{4}-\d{2}-\d{2}$/.test(date) || !selectedTopics.every((id) => topics.some((topic) => topic.id === id))) {
     throw new Error(`Invalid curated WeChat link for ${sourceId}`);
   }
-  const key = normalizeUrl(url)!;
+  const key = articleKey(url);
   if (date < earliest || date > currentDate || entries.has(key)) continue;
   entries.set(key, { title, url, date, source: `${source.name} · 微信公众号`, topics: [...new Set([...selectedTopics, ...topicIds(title)])], tender: false, curated: true });
 }

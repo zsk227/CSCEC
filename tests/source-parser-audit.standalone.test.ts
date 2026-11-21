@@ -6,7 +6,7 @@ import { after, test } from "node:test";
 import { config } from "@aihot/backend/config";
 import { contentHash } from "@aihot/backend/content/materials";
 import { unsupportedConfig } from "@aihot/backend/sources/config-keys";
-import { fetchWebList } from "@aihot/backend/sources/web-list";
+import { fetchWebList, fromHtml } from "@aihot/backend/sources/web-list";
 import { parseLooseDate } from "@aihot/backend/sources/dates";
 
 const section = (id: string, date: string, title: string, body: string) =>
@@ -88,4 +88,25 @@ test("inserting a new help-center section does not change older identities or ma
     assert.ok(same);
     assert.equal(contentHash(same), contentHash(item));
   }
+});
+
+test("JPage extracts dated articles from public XML records and ignores pagination", () => {
+  const url = "https://housing.example.gov.cn/col/col4237/index.html";
+  const config = {
+    url,
+    adapter: "jpage_records",
+    itemSelector: "li",
+    publishedAtSelector: "span",
+    publishedAtUtcOffset: "+08:00",
+    allowUrlPrefixes: ["https://housing.example.gov.cn/art/"],
+  };
+  assert.deepEqual(unsupportedConfig("web_list", config), []);
+  const html = `<script type="text/xml"><datastore>
+    <nextgroup><![CDATA[<li><a href="/list?page=2">下一页</a></li>]]></nextgroup>
+    <record><![CDATA[<li><span>2026-11-19</span><a href="/art/notice.html">老旧小区改造开工</a></li>]]></record>
+  </datastore></script>`;
+  const rows = fromHtml(html, url, { config } as never);
+  assert.deepEqual(rows.map(({ url, title, publicationTime }) => [url, title, publicationTime]), [
+    ["https://housing.example.gov.cn/art/notice.html", "老旧小区改造开工", "2026-11-19"],
+  ]);
 });
