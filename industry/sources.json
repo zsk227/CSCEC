@@ -3442,6 +3442,134 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-cloud-register",
+      "name": "湖北省公共资源交易云平台 · 项目报建",
+      "kind": "web_list",
+      "config": {
+        "url": "https://bidcloud.hbggzy.cn/hubei/jyxx/004001/aboutccgs.html",
+        "parseMode": "html",
+        "itemSelector": "#main .wb-data-list:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span",
+        "publishedAtUtcOffset": "+08:00",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})",
+        "allowUrlPrefixes": [
+          "https://bidcloud.hbggzy.cn/hubei/jyxx/004001/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 12
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方",
+        "招采"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-cloud-plans",
+      "name": "湖北省公共资源交易云平台 · 招标计划",
+      "kind": "web_list",
+      "config": {
+        "url": "https://bidcloud.hbggzy.cn/hubei/zbygg/aboutccgs.html",
+        "parseMode": "html",
+        "itemSelector": "#main .wb-data-list:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span",
+        "publishedAtUtcOffset": "+08:00",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})",
+        "allowUrlPrefixes": [
+          "https://bidcloud.hbggzy.cn/hubei/zbygg/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 12
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方",
+        "招采"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-cloud-early-files",
+      "name": "湖北省公共资源交易云平台 · 招标文件提前公示",
+      "kind": "web_list",
+      "config": {
+        "url": "https://bidcloud.hbggzy.cn/hubei/zbwjtqgs/aboutccgs.html",
+        "parseMode": "html",
+        "itemSelector": "#main .wb-data-list:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span",
+        "publishedAtUtcOffset": "+08:00",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})",
+        "allowUrlPrefixes": [
+          "https://bidcloud.hbggzy.cn/hubei/zbwjtqgs/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 12
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方",
+        "招采"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hb-tenders-cloud-evaluations",
+      "name": "湖北省公共资源交易云平台 · 评标结果公示",
+      "kind": "web_list",
+      "config": {
+        "url": "https://bidcloud.hbggzy.cn/hubei/jyxx/004004/aboutccgs.html",
+        "parseMode": "html",
+        "itemSelector": "#main .wb-data-list:has(a[href])",
+        "linkSelector": "a[href]",
+        "titleSelector": "a[href]",
+        "publishedAtSelector": "span",
+        "publishedAtUtcOffset": "+08:00",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})",
+        "allowUrlPrefixes": [
+          "https://bidcloud.hbggzy.cn/hubei/jyxx/004004/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 12
+        }
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方",
+        "招采"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }
