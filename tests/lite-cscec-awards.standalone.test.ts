@@ -10,6 +10,10 @@ test("reads the named winners of formal results, including member companies in a
     </table></div>`,
   ), ["中国建筑第三工程局有限公司", "中建三局安装工程有限公司"]);
   assert.deepEqual(readCscecAwards(
+    `<div class="article-content"><table><tr><td>中标人:</td>
+      <td>湖北某建设有限公司、中国建筑标准设计研究院有限公司、中建三局第三建设工程有限责任公司联合体</td></tr></table></div>`,
+  ), ["中建三局第三建设工程有限责任公司"]);
+  assert.deepEqual(readCscecAwards(
     `<div class="article-content">&lt;table&gt;&lt;tr&gt;&lt;td&gt;中标单位&lt;/td&gt;
      &lt;td&gt;中建壹品投资发展有限公司&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</div>`,
   ), ["中建壹品投资发展有限公司"]);

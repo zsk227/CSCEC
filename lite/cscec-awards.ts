@@ -38,7 +38,7 @@ function companyNames(value: string): string[] {
     return compact
       .replace(/^(?:\d+[.、]|[（(]?[一二三四五六七八九十]+[）)、.])/, "")
       .replace(/^(?:联合体(?:牵头人|成员(?:单位)?)(?:名称)?|牵头单位|成员单位)[:]?/, "")
-      .replace(/\((?:联合体)?(?:牵头人|牵头单位|成员|成员单位)\)$/, "");
+      .replace(/(?:联合体|\((?:联合体|(?:联合体)?(?:牵头人|牵头单位|成员|成员单位))\))$/, "");
   }).filter((name) => companyName.test(name));
 }
 
