@@ -10,10 +10,11 @@ import { normalizeUrl } from "../packages/backend/src/lib/url.ts";
 import type { Candidate, SourceRow } from "../packages/backend/src/sources/types.ts";
 import { articleUrl } from "./links.ts";
 import { parseProcurementProjects } from "./procurement-intentions.ts";
+import { isAwardNotice, readCscecAwards } from "./cscec-awards.ts";
 import { compactTitle, topics } from "./topics.mjs";
 
 type Opportunity = { buyer?: string; location?: string; amount?: string; deadline?: string; expectedMonth?: string };
-type Entry = { title: string; url: string; source: string; date: string; topics: string[]; tender: boolean; curated?: true; opportunity?: Opportunity };
+type Entry = { title: string; url: string; source: string; date: string; topics: string[]; tender: boolean; curated?: true; opportunity?: Opportunity; cscecAward?: string[] };
 type Feed = { updated: string; updatedLabel: string; items: Entry[] };
 type WechatLink = Pick<Entry, "title" | "url" | "date" | "topics"> & { sourceId: string };
 
@@ -131,7 +132,9 @@ for (const source of sources) {
       const key = normalizeUrl(item.url)!;
       const existing = entries.get(key);
       const details = item.opportunity ?? existing?.opportunity;
-      entries.set(key, { ...item, tender: item.tender || existing?.tender === true, ...(details && { opportunity: details }) });
+      const cscecAward = existing?.date === item.date && compactTitle(existing.title) === compactTitle(item.title)
+        ? existing.cscecAward : undefined;
+      entries.set(key, { ...item, tender: item.tender || existing?.tender === true, ...(details && { opportunity: details }), ...(cscecAward && { cscecAward }) });
     }
     console.log(`${source.id}: ${result.found} listings, ${result.items.length} matched`);
   } catch (error) {
@@ -154,6 +157,22 @@ for (const { sourceId, title, url, date, topics: selectedTopics } of wechatLinks
 }
 
 const items = [...entries.values()].sort((a, b) => b.date.localeCompare(a.date) || a.url.localeCompare(b.url));
+// Check official detail pages for published results, including results already in the retained feed.
+const pendingAwards = items.filter((item) => item.tender && !item.cscecAward && isAwardNotice(item.title, item.url)
+  && /^(?:www\\.|bidcloud\\.)?hbggzy\\.cn$|^(?:www\\.)?hbggzyfwpt\\.cn$|^(?:www\\.)?ccgp-hubei\\.gov\\.cn$/.test(new URL(item.url).hostname)).slice(0, 40);
+for (let offset = 0; offset < pendingAwards.length; offset += 3) {
+  await Promise.all(pendingAwards.slice(offset, offset + 3).map(async (item) => {
+    try {
+      const page = requireOk(await guardedFetch(item.url, { timeoutMs: 7000, maxBytes: 1024 * 1024 }));
+      // The group names must come from a winner field, never from a general page mention.
+      const result = readCscecAwards(page.text());
+      if (result) item.cscecAward = result;
+    } catch {
+      // Keep the notice and retry the enrichment at the next collection.
+    }
+  }));
+}
+console.log(`Checked ${pendingAwards.length} result notices. Feed contains ${items.filter((item) => item.cscecAward?.length).length} confirmed CSCEC 3rd Bureau awards.`);
 console.log(`Sources ${successful}/${sources.length} (${newsSources} web, ${tenderSources} Hubei searches). Feed ${items.length} items (${items.filter((item) => item.tender).length} tenders).`);
 if (!tenderSources || !newsSources || !items.some((item) => item.tender) || !items.some((item) => !item.tender && !item.curated)) {
   throw new Error("Collection must verify both Hubei tender searches and industry articles before publishing");
