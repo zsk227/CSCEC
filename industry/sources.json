@@ -3321,6 +3321,127 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "hubei-miit-headlines",
+      "name": "湖北省经信厅 · 经信厅要闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://jxt.hubei.gov.cn/bmdt/jxtyw/",
+        "parseMode": "html",
+        "itemSelector": "li:has(h4 a):has(.date)",
+        "linkSelector": "h4 a",
+        "titleSelector": "h4 a",
+        "publishedAtSelector": ".date",
+        "allowUrlPrefixes": [
+          "https://jxt.hubei.gov.cn/bmdt/jxtyw/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 12
+        },
+        "publishedAtUtcOffset": "+08:00",
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "owner_entity_id": "hubei-miit",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true
+    },
+    {
+      "id": "hubei-miit-policy-notices",
+      "name": "湖北省经信厅 · 政策通知",
+      "kind": "web_list",
+      "config": {
+        "url": "https://jxt.hubei.gov.cn/fbjd/zc/qtzdgkwj/gwfb/",
+        "parseMode": "html",
+        "itemSelector": ".info-list > li:has(a)",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "publishedAtSelector": "span",
+        "publishedAtRegex": "(20\\d{2}[-/]\\d{2}[-/]\\d{2})",
+        "allowUrlPrefixes": [
+          "https://jxt.hubei.gov.cn/fbjd/zc/qtzdgkwj/gwfb/"
+        ],
+        "publishedAtUtcOffset": "+08:00"
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "miit-it-development",
+      "name": "工业和信息化部 · 信息技术发展司",
+      "kind": "web_list",
+      "config": {
+        "url": "https://wap.miit.gov.cn/jgsj/xxjsfzs/index.html",
+        "parseMode": "html",
+        "itemSelector": ".bt-lists-cover li:has(> a)",
+        "linkSelector": "a[href*='/art/']",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://wap.miit.gov.cn/jgsj/xxjsfzs/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "miit-communication-management",
+      "name": "工业和信息化部 · 信息通信管理局",
+      "kind": "web_list",
+      "config": {
+        "url": "https://wap.miit.gov.cn/jgsj/xgj/index.html",
+        "parseMode": "html",
+        "itemSelector": ".bt-lists-cover li:has(> a)",
+        "linkSelector": "a[href*='/art/']",
+        "publishedAtRegex": "(20\\d{2}[-/.年]\\d{1,2}[-/.月]\\d{1,2})",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://wap.miit.gov.cn/jgsj/xgj/",
+          "https://wap.miit.gov.cn/ztzl/rdzt/gyhlw/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "sortByPublishedAt": true
+      },
+      "tier": "T1",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "enabled": true,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }
