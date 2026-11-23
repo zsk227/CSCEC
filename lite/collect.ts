@@ -158,8 +158,7 @@ for (const { sourceId, title, url, date, topics: selectedTopics } of wechatLinks
 
 const items = [...entries.values()].sort((a, b) => b.date.localeCompare(a.date) || a.url.localeCompare(b.url));
 // Check official detail pages for published results, including results already in the retained feed.
-const pendingAwards = items.filter((item) => item.tender && !item.cscecAward && isAwardNotice(item.title, item.url)
-  && /^(?:www\\.|bidcloud\\.)?hbggzy\\.cn$|^(?:www\\.)?hbggzyfwpt\\.cn$|^(?:www\\.)?ccgp-hubei\\.gov\\.cn$/.test(new URL(item.url).hostname)).slice(0, 40);
+const pendingAwards = items.filter((item) => item.tender && !item.cscecAward && isAwardNotice(item.title, item.url)).slice(0, 40);
 for (let offset = 0; offset < pendingAwards.length; offset += 3) {
   await Promise.all(pendingAwards.slice(offset, offset + 3).map(async (item) => {
     try {

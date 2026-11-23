@@ -12,7 +12,13 @@ const subsidiaries = new Set([
 const groupName = /^(?:中国建筑第三工程局|中建三局|湖北中建三局)[\p{Script=Han}\p{Script=Latin}\d().·-]*公司$/u;
 const companyName = /^[\p{Script=Han}\p{Script=Latin}\d().·-]{3,80}公司$/u;
 
+const resultHosts = new Set([
+  "www.hbggzy.cn", "hbggzy.cn", "bidcloud.hbggzy.cn",
+  "www.hbggzyfwpt.cn", "hbggzyfwpt.cn", "www.ccgp-hubei.gov.cn", "ccgp-hubei.gov.cn",
+]);
+
 export function isAwardNotice(title: string, url: string): boolean {
+  if (!URL.canParse(url) || !resultHosts.has(new URL(url).hostname)) return false;
   const headline = title.replace(/\s+/g, "");
   if (/候选人|评标结果|废标|流标|终止|结果(?:更正|变更|撤销)|(?:更正|变更|撤销)公告/.test(headline)) return false;
   return /(?:中标|成交|定标).{0,16}(?:公告|公示|结果)|(?:采购)?结果公告/.test(headline) ||
