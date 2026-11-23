@@ -5,12 +5,14 @@ import { beijingDate, beijingTime } from "@aihot/contracts/time";
 import { assertSupportedConfig } from "../packages/backend/src/sources/config-keys.ts";
 import { fetchJsonList } from "../packages/backend/src/sources/json-list.ts";
 import { fetchDetail, fetchWebList } from "../packages/backend/src/sources/web-list.ts";
+import { guardedFetch, requireOk } from "../packages/backend/src/lib/http-fetch.ts";
 import { normalizeUrl } from "../packages/backend/src/lib/url.ts";
 import type { Candidate, SourceRow } from "../packages/backend/src/sources/types.ts";
 import { articleUrl } from "./links.ts";
+import { parseProcurementProjects } from "./procurement-intentions.ts";
 import { compactTitle, topics } from "./topics.mjs";
 
-type Opportunity = { buyer?: string; location?: string; amount?: string; deadline?: string };
+type Opportunity = { buyer?: string; location?: string; amount?: string; deadline?: string; expectedMonth?: string };
 type Entry = { title: string; url: string; source: string; date: string; topics: string[]; tender: boolean; curated?: true; opportunity?: Opportunity };
 type Feed = { updated: string; updatedLabel: string; items: Entry[] };
 type WechatLink = Pick<Entry, "title" | "url" | "date" | "topics"> & { sourceId: string };
@@ -49,10 +51,9 @@ function opportunity(excerpt: string): Opportunity | undefined {
   return buyer || location || amount || deadline ? { buyer, location, amount, deadline } : undefined;
 }
 
-function normalize(item: Candidate, source: SourceRow): Entry | null {
+function normalize(item: Candidate, source: SourceRow, matched = topicIds(item.title)): Entry | null {
   // A match in the title avoids publishing tenders that mention a keyword only in standard clauses.
   const tender = isTender(item.title, source, item.url);
-  const matched = topicIds(item.title);
   if (!matched.length || !item.publishedAt) return null;
   const url = articleUrl(item.url);
   if (!url) return null;
@@ -62,12 +63,40 @@ function normalize(item: Candidate, source: SourceRow): Entry | null {
   return { title: item.title, url, source: source.name, date, topics: matched, tender, ...(detail && { opportunity: detail }) };
 }
 
+// The portal lists monthly notices under a buyer's name. Project names are in the public notice table.
+async function readProcurementIntentions(items: Candidate[], source: SourceRow) {
+  const recent = items.filter((item) => item.publishedAt && beijingDate(item.publishedAt) >= earliest
+    && /^https?:\/\/www\.ccgp-hubei\.gov\.cn\/notice\/20\d{4}\/cgyxgg_[a-z0-9]+\.html$/i.test(item.url)).slice(0, 15);
+  const entries: Entry[] = [];
+  for (let at = 0; at < recent.length; at += 3) {
+    const batch = await Promise.all(recent.slice(at, at + 3).map(async (item) => {
+      const page = await guardedFetch(item.url, { timeoutMs: 6000, maxBytes: 1024 * 1024 })
+        .then(requireOk).catch(() => null);
+      const projects = page ? parseProcurementProjects(page.text())
+        .map((project) => ({ ...project, topics: topicIds(project.title + " " + project.requirement) }))
+        .filter((project) => project.topics.length) : [];
+      if (!projects.length) return normalize(item, source);
+      const names = [...new Set(projects.map((project) => project.title))];
+      const title = names.slice(0, 3).join("、") + (names.length > 3 ? "等" + names.length + "个项目" : "") + "（采购意向）";
+      const matched = [...new Set(projects.flatMap((project) => project.topics))];
+      const entry = normalize({ ...item, title }, source, matched);
+      if (!entry) return null;
+      const buyer = item.title.split(/\s*20\d{2}\s*年/)[0]?.trim();
+      const { amount, expectedMonth } = projects.length === 1 ? projects[0]! : {};
+      return { ...entry, opportunity: { buyer, amount, expectedMonth } };
+    }));
+    entries.push(...batch.filter((entry): entry is Entry => entry !== null));
+  }
+  return { found: items.length, items: entries };
+}
+
 async function read(source: SourceRow) {
   assertSupportedConfig(source.kind, source.config);
   if (typeof source.config.url !== "string" || !/^https?:\/\//.test(source.config.url) || /^https?:\/\/r\.jina\.ai\//.test(source.config.url)) {
     throw new Error("Only public, direct listings are allowed");
   }
   const items = await (source.kind === "json_list" ? fetchJsonList(source) : fetchWebList(source));
+  if (source.id === "hb-procurement-intentions") return readProcurementIntentions(items, source);
   let dateReads = 0;
   for (const item of items) {
     if (item.publishedAt || !source.config.detail || dateReads >= 4 || !topicIds(item.title).length) continue;

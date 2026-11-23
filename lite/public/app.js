@@ -94,6 +94,8 @@ function noticeStage(item) {
   const title = compactTitle(item.title);
   if (/答疑|澄清|补遗|更正|变更/.test(title)) return { id: "changes", label: "变更与答疑" };
   if (/采购意向/.test(title)) return { id: "planning", label: "采购意向" };
+  if (/招标意向/.test(title)) return { id: "planning", label: "招标意向" };
+  if (/采购计划/.test(title)) return { id: "planning", label: "采购计划" };
   if (/需求公示|征求意见/.test(title)) return { id: "planning", label: "需求公示" };
   if (/报建/.test(title)) return { id: "planning", label: "项目报建" };
   if (/招标计划/.test(title) || /bidcloud\.hbggzy\.cn\/hubei\/zbygg\//.test(item.url)) return { id: "planning", label: "招标计划" };
@@ -147,6 +149,7 @@ function toRow(item, { compact = false, relatedCounts } = {}) {
       if (details.buyer) metadataText(metadata, `采购方 ${details.buyer}`);
       if (details.location) metadataText(metadata, `地点 ${details.location}`);
       if (details.amount) metadataText(metadata, details.amount);
+      if (details.expectedMonth) metadataText(metadata, `预计采购 ${details.expectedMonth}`);
       if (details.deadline) metadataText(metadata, `投标或响应截止 ${details.deadline}`);
       if (!relatedView && number && relatedCounts?.get(number) > 1) {
         const related = document.createElement("a");
