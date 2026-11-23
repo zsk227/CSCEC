@@ -38,4 +38,8 @@ test("candidate, cancellation and correction notices do not qualify as formal aw
   }
   assert.equal(isAwardNotice("城区管廊项目中标结果公告", url), true);
   assert.equal(isAwardNotice("软 件运维服务结果公告", url), true);
+  const title = "地下综合管廊建设项目中标结果公告";
+  assert.equal(isAwardNotice(title, "https://www.hbggzy.cn/jyxx/003001/003001006/20261027/422f10db-2a8e-4340-87bd-c2cd2e20d646.html"), true);
+  assert.equal(isAwardNotice(title, "https://bidcloud.hbggzy.cn/hubei/jyxx/20261027/result.html"), true);
+  assert.equal(isAwardNotice(title, "https://www.hbggzy.cn.example.org/jyxx/003001/003001006/test.html"), false);
 });

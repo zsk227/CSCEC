@@ -173,6 +173,7 @@ const convertsBeijingTime = (line: string) =>
   || /(?:timeZone:|AT TIME ZONE) ?["']Asia\/Shanghai/.test(line);
 const CONVERTS_BEIJING_TIME: Record<string, string> = {
   "packages/contracts/src/time.ts": "the conversions themselves",
+  "lite/public/app.js": "the unbundled Cloudflare Pages browser script formats its list date windows with Intl",
   "packages/backend/src/editorial/analyze.ts": "the score input keeps the form its prompt was tuned on (whole seconds without .000)",
   "packages/backend/src/editorial/writing.ts": "a beijingDate written out, left to the next change of editorial/",
   "site/changelog/FeatureRelease.tsx": "a changelog entry's Beijing date and time with its zone, to the minute, in dateTime",
