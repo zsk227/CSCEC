@@ -13,6 +13,7 @@ const stageOptions = [
   { id: "bidding", label: "招采公告" },
   { id: "results", label: "候选与结果" },
   { id: "changes", label: "变更与答疑" },
+  { id: "cscec-awards", label: "中建三局中标" },
 ];
 const stage = stageOptions.find(({ id }) => id === params.get("stage"))?.id ?? "";
 const digitalOnly = params.get("scope") === "digital";
@@ -92,6 +93,7 @@ for (const [name, value] of [["view", tenderView ? "tenders" : "all"], ["topic",
 
 function noticeStage(item) {
   const title = compactTitle(item.title);
+  if (item.cscecAward?.length) return { id: "results", label: "结果公告" };
   if (/答疑|澄清|补遗|更正|变更/.test(title)) return { id: "changes", label: "变更与答疑" };
   if (/采购意向/.test(title)) return { id: "planning", label: "采购意向" };
   if (/招标意向/.test(title)) return { id: "planning", label: "招标意向" };
@@ -146,6 +148,7 @@ function toRow(item, { compact = false, relatedCounts } = {}) {
     if (!compact) {
       const details = item.opportunity ?? {};
       const number = projectNumber(item);
+      if (item.cscecAward?.length) metadataText(metadata, `中标单位 ${item.cscecAward.join("、")}`);
       if (details.buyer) metadataText(metadata, `采购方 ${details.buyer}`);
       if (details.location) metadataText(metadata, `地点 ${details.location}`);
       if (details.amount) metadataText(metadata, details.amount);
@@ -222,8 +225,9 @@ try {
   } else {
     const matches = items.filter((item) => item.tender === tenderView &&
       (!tenderView || !digitalOnly || relatedView || digitalTitle.test(compactTitle(item.title))) &&
-      (!topic || item.topics.includes(topic.id)) && (!stage || !tenderView || noticeStage(item).id === stage) &&
-      (!query || `${compactTitle(item.title)} ${item.source} ${item.opportunity?.buyer ?? ""} ${item.opportunity?.location ?? ""}`
+      (!topic || item.topics.includes(topic.id)) &&
+      (!stage || !tenderView || (stage === "cscec-awards" ? item.cscecAward?.length : noticeStage(item).id === stage)) &&
+      (!query || `${compactTitle(item.title)} ${item.source} ${item.opportunity?.buyer ?? ""} ${item.opportunity?.location ?? ""} ${item.cscecAward?.join(" ") ?? ""}`
         .toLowerCase().includes(compactTitle(query).toLowerCase())));
     if (relatedView) heading.textContent = "同标段公告";
     const relatedCounts = new Map();
