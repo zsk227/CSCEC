@@ -96,11 +96,11 @@ function noticeStage(item) {
   if (/采购意向/.test(title)) return { id: "planning", label: "采购意向" };
   if (/需求公示|征求意见/.test(title)) return { id: "planning", label: "需求公示" };
   if (/报建/.test(title)) return { id: "planning", label: "项目报建" };
-  if (/招标计划/.test(title)) return { id: "planning", label: "招标计划" };
+  if (/招标计划/.test(title) || /bidcloud\.hbggzy\.cn\/hubei\/zbygg\//.test(item.url)) return { id: "planning", label: "招标计划" };
   if (/候选人|评标结果/.test(title)) return { id: "results", label: "候选或评标结果" };
   if (/中标|成交|废标|流标|终止/.test(title)) return { id: "results", label: "结果公告" };
   if (/hbggzyfwpt\.cn\/jyxx\/jsgcXmxxDetail2\?/.test(item.url)) return { id: "planning", label: "招标计划" };
-  if (/hbggzyfwpt\.cn\/jyxx\/jsgcXmxxDetail3\?/.test(item.url)) return { id: "planning", label: "招采文件提前公示" };
+  if (/hbggzyfwpt\.cn\/jyxx\/jsgcXmxxDetail3\?|bidcloud\.hbggzy\.cn\/hubei\/zbwjtqgs\//.test(item.url)) return { id: "planning", label: "招采文件提前公示" };
   const category = /\/jyxx\/00300[12]\/(00300[12]\d{3})\//.exec(item.url)?.[1];
   if (category === "003001002") return { id: "planning", label: "招标计划" };
   if (category === "003002001") return { id: "planning", label: "需求公示" };
